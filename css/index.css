@@ -528,7 +528,32 @@ body {
 	font: normal 14px/16px 'PTSerif';
     width: 1060px;
     margin: 0 auto;
+    position: relative;
 }
+
+    .all:before {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        margin-left: -960px;
+        background: url(../upload/bg-left-bottle.png);
+        width: 430px;
+        height: 908px;
+        content: ' ';
+    }
+
+    .all:after {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 50%;
+        margin-right: -960px;
+        background: url(../upload/bg-right-bottle.png);
+        width: 430px;
+        height: 1163px;
+        content: ' ';
+    }
     
     .all-head {
         height: 95px;

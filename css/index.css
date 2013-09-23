@@ -117,6 +117,10 @@ p {
     display: inline-block;
 }
 
+.button:hover {
+    background: #a86e3e;
+}
+
 /* Arrows */
 .arrow {
     background: #000;
@@ -324,6 +328,10 @@ p {
         .box-side .title .header {
             background: #f0f0f0;
         }
+        
+    .box-side .title-center-big {
+        margin-top: 0;
+    }
     
     .box .ilu {
         margin-bottom: 10px;
@@ -409,6 +417,7 @@ p {
         .popup-form .line {
             position: relative;
             margin-top: 20px;
+            position: relative;
         }
         
         .popup-form .line:first-child {
@@ -426,7 +435,6 @@ p {
                 }
                 
             .popup-form .input-wrap {
-                position: relative;
             }
             
                 .popup-form .input {
@@ -454,7 +462,7 @@ p {
                 display: block;
                 position: absolute;
                 left: 290px;
-                top: 0;
+                top: 21px;
                 white-space: nowrap;
                 display: none;
             }
@@ -865,8 +873,11 @@ body {
 .inside-content {
     font-family: 'PTSerif';
     font-size: 16px;
-    line-height: 23px;
 }
+
+    .inside-content .content {
+        line-height: 23px;
+    }
 
     .inside-content .content p {
         margin-bottom: 25px;
@@ -912,10 +923,38 @@ body {
         margin-bottom: 20px;
     }
     
-        .inside-content .content .ilu-img {
+        .inside-content .content .ilu-wrap {
+            position: relative;
             display: block;
             margin-bottom: 5px;
+            cursor: pointer;
         }
+            
+            .inside-content .content .ilu-mask {
+                background: #000;
+                position: absolute;
+                width: 100%;
+                height: 45px;
+                opacity: 0.5;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                display: none;
+            }
+            
+            .inside-content .content .ilu-cnt {
+                width: 100%;
+                position: absolute;
+                bottom: 10px;
+                height: 25px;
+                text-align: center;
+                left: 0;
+                z-index: 10;
+            }
+        
+            .inside-content .content .ilu-img {
+                display: block;
+            }
         
         .inside-content .content .ilu-title {
             text-transform: uppercase;
@@ -959,6 +998,7 @@ body {
             
                 .inside-content .row-social .line-first .likes .like-block {
                     display: inline-block;
+                    margin-right: 10px;
                 }
                 
                 .inside-content .row-social .line-first .likes .like-pinit {
@@ -994,7 +1034,7 @@ body {
                 color: #808080;
                 border: 3px solid #adadad;
                 display: block;
-                padding: 5px 15px 1px 15px;
+                padding: 6px 15px 1px 15px;
             }
             
             .inside-content .row-social .line-second .tag:hover {
@@ -1011,6 +1051,7 @@ body {
             font-size: 11px;
             font-family: 'PTSerifBold';
             color: #999;
+            margin-bottom: 10px;
         }
         
         .inside-content .row-comments .title {
@@ -1021,7 +1062,11 @@ body {
         }
         
             .comments .comment {
-                margin-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            
+            .comments .comment-level2 {
+                padding-left: 65px;
             }
             
             .comments .comment a {
@@ -1038,6 +1083,7 @@ body {
                 .comments .comment .data {
                     display: inline-block;
                     vertical-align: top;
+                    margin-top: -7px;
                 }
                 
                     .comments .comment .data .line {

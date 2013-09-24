@@ -1,14 +1,17 @@
 $.fn.followTo = function (pos) {
     var $this = this,
-        $window = $(window);
+        $window = $(window),
+        $hbody = $('html,body');
 
     $window.scroll(function (e) {
         if ($window.scrollTop() > pos) {
+            $hbody.css('overflowX', 'hidden');
             $this.css({
                 position: 'absolute',
                 top: pos
             });
         } else {
+            $hbody.css('overflowX', '');
             $this.css({
                 position: 'fixed',
                 top: 0
@@ -222,18 +225,19 @@ $(function(){
             }
         );
     })();
-    
-    
+});
+
+$(window).load(function() {
     (function() {
-        var totalHeight = $('.all').outerHeight(true),
+        var totalHeight = $('body').height(),
             footerHeight = $('.all-foot').outerHeight(true),
-            scrollStop = totalHeight - footerHeight,
+            footStop = totalHeight - footerHeight,
             items = $('.all-before, .all-after');
-        
+
         items.each(function(i) {
             var me = $(this),
                 height = me.height();
-            me.followTo(scrollStop - height);
+            me.followTo(footStop - height);
         });
     })();
 });

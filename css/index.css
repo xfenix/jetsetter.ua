@@ -524,10 +524,6 @@ body {
     background: #000 url(../upload/bg-hennessy.jpg) center top no-repeat;
 }
 
-html,body {
-    overflow-x: hidden;
-}
-
 body {
     position: relative;
 }

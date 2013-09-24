@@ -1,24 +1,15 @@
-$.fn.followTo = function (pos) {
-    var $this = this,
-        $window = $(window),
-        $hbody = $('html,body');
+var bottlesFix = (function() {
+    var totalHeight = $('body').height(),
+        footerHeight = $('.all-foot').outerHeight(true),
+        footStop = totalHeight - footerHeight,
+        items = $('.all-before, .all-after');
 
-    $window.scroll(function (e) {
-        if ($window.scrollTop() > pos) {
-            $hbody.css('overflowX', 'hidden');
-            $this.css({
-                position: 'absolute',
-                top: pos
-            });
-        } else {
-            $hbody.css('overflowX', '');
-            $this.css({
-                position: 'fixed',
-                top: 0
-            });
-        }
+    items.each(function(i) {
+        var me = $(this),
+            height = me.height();
+        me.followTo(footStop - height);
     });
-};
+});
 
 $(function(){
     var HOVER_MENU_TIME = 500,
@@ -225,19 +216,10 @@ $(function(){
             }
         );
     })();
+    
+    bottlesFix();
 });
 
 $(window).load(function() {
-    (function() {
-        var totalHeight = $('body').height(),
-            footerHeight = $('.all-foot').outerHeight(true),
-            footStop = totalHeight - footerHeight,
-            items = $('.all-before, .all-after');
-
-        items.each(function(i) {
-            var me = $(this),
-                height = me.height();
-            me.followTo(footStop - height);
-        });
-    })();
+    bottlesFix();
 });

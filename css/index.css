@@ -524,14 +524,21 @@ body {
     background: #000 url(../upload/bg-hennessy.jpg) center top no-repeat;
 }
 
+html,body {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+}
+
 .all {
 	font: normal 14px/16px 'PTSerif';
     width: 1060px;
     margin: 0 auto;
-    position: relative;
 }
 
-    .all:before {
+    .all-before {
         display: block;
         position: fixed;
         top: 0;
@@ -543,7 +550,7 @@ body {
         content: ' ';
     }
 
-    .all:after {
+    .all-after {
         display: block;
         position: fixed;
         top: 0;
@@ -551,7 +558,7 @@ body {
         margin-right: -960px;
         background: url(../upload/bg-right-bottle.png);
         width: 430px;
-        height: 1163px;
+        height: 908px;
         content: ' ';
     }
     
@@ -838,6 +845,7 @@ body {
                 top: 0;
                 right: 0;
                 text-align: right;
+                padding-right: 0;
             }
             
                 .all-foot .menu .social .item {
@@ -952,7 +960,6 @@ body {
             position: relative;
             display: block;
             margin-bottom: 5px;
-            cursor: pointer;
         }
             
             .inside-content .content .ilu-mask {
@@ -961,6 +968,7 @@ body {
                 width: 100%;
                 height: 45px;
                 opacity: 0.5;
+                filter: alpha(opacity=50);
                 bottom: 0;
                 left: 0;
                 z-index: 1;
@@ -970,8 +978,7 @@ body {
             .inside-content .content .ilu-cnt {
                 width: 100%;
                 position: absolute;
-                bottom: 10px;
-                height: 25px;
+                bottom: 5px;
                 text-align: center;
                 left: 0;
                 z-index: 10;

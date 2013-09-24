@@ -1,3 +1,22 @@
+$.fn.followTo = function (pos) {
+    var $this = this,
+        $window = $(window);
+
+    $window.scroll(function (e) {
+        if ($window.scrollTop() > pos) {
+            $this.css({
+                position: 'absolute',
+                top: pos
+            });
+        } else {
+            $this.css({
+                position: 'fixed',
+                top: 0
+            });
+        }
+    });
+};
+
 $(function(){
     var HOVER_MENU_TIME = 500,
         CYCLE_TIMEOUT = 6000,
@@ -202,5 +221,19 @@ $(function(){
                 $(this).find(show).hide();
             }
         );
+    })();
+    
+    
+    (function() {
+        var totalHeight = $('.all').outerHeight(true),
+            footerHeight = $('.all-foot').outerHeight(true),
+            scrollStop = totalHeight - footerHeight,
+            items = $('.all-before, .all-after');
+        
+        items.each(function(i) {
+            var me = $(this),
+                height = me.height();
+            me.followTo(scrollStop - height);
+        });
     })();
 });

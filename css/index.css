@@ -712,7 +712,7 @@ body {
         .all-content .content {
             width: 680px;
             display: table-cell;
-            padding: 20px;
+            padding: 25px 20px 20px 20px;
         }
             
         .all-content .row-content .content {
@@ -737,12 +737,13 @@ body {
             width: 340px;
             display: table-cell;
             vertical-align: top;
+            padding-bottom: 40px;
         }
         
             .all-content .sidebar-wrap {
                 background: #f0f0f0;
                 width: 300px;
-                padding: 20px;
+                padding: 25px 20px 20px 20px;
             }
             
         .all-content .pager {
@@ -1048,26 +1049,31 @@ body {
             }
             
             .inside-content .row-social .line-second .tags-title {
-                padding: 7px 10px 0 0;
+                padding: 12px 10px 0 0;
             }
             
-            .inside-content .row-social .line-second .block {
+            .tags .block {
                 display: inline-block;
                 margin-right: 15px;
                 margin-bottom: 10px;
                 vertical-align: top;
             }
             
-            .inside-content .row-social .line-second .tag {
+            .tag {
                 color: #808080;
                 border: 3px solid #adadad;
                 display: block;
-                padding: 6px 15px 1px 15px;
+                padding: 10px 15px 5px 15px;
             }
             
-            .inside-content .row-social .line-second .tag:hover {
+            .tag:hover {
                 color: #754d2b;
                 border-color: #000;
+            }
+            
+            .tag2 {
+                color: #a86e3e;
+                border-color: #a86e3e;
             }
     
     .inside-content .row-comments {
@@ -1201,3 +1207,93 @@ body {
                 display: inline-block;
                 padding: 0 10px;
             }
+            
+/* Search */
+.search-content {
+    
+}
+
+    .search-content .search-form {
+        margin-bottom: 20px;
+    }
+    
+        .search-content .search-form .lines {
+            
+        }
+    
+            .search-content .search-form .lines .line {
+                display: inline-block;
+                vertical-align: top;
+            }
+            
+            .search-content .search-form .lines .line-first {
+                margin-right: 10px;
+            }
+        
+                .search-content .search-form .input {
+                    border: 1px solid #000;
+                    width: 80%;
+                    padding: 5px;
+                    height: 35px;
+                    font-size: 14px;
+                    font-family: 'PTSerif';
+                    width: 590px;
+                }
+                
+                .search-content .search-form .button {
+                    padding: 11px 20px 7px 20px;
+                }
+                
+            .search-content .search-form .counter {
+                margin-top: 5px;
+                color: #666;
+                font-size: 11px;
+                font-family: 'PTSansBold';
+            }
+    
+    .search-content .search-result {
+        border-top: 1px solid #e5e5e5;
+        margin-bottom: 10px;
+    }
+        
+        .search-result .search-data {
+            
+        }
+    
+        .search-result .search-title {
+            margin: 7px 0;
+            color: #a86e3e;
+        }
+        
+        .search-result .ilu-wrap,
+        .search-result .text-wrap {
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .search-result .ilu-wrap {
+            width: 100px;
+            margin-right: 10px;
+        }
+        
+        .search-result .text-wrap {
+            width: 565px;
+        }
+        
+            .search-result .text-wrap .text {
+                margin-bottom: 10px;
+                line-height: 20px;
+            }
+
+    .search-content .text .hl,
+    .search-content .text-title .hl {
+        background: #e5d3c5;
+    }
+    
+    .search-content .text .hl {
+        padding: 0 2px;
+    }
+
+    .search-content .text-title .hl {
+        padding: 4px 5px 0 5px;
+    }

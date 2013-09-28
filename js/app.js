@@ -1,5 +1,5 @@
 (function(){
-    var HOVER_MENU_TIME = 500,
+    var HOVER_MENU_TIME = 400,
         CYCLE_TIMEOUT = 6000,
         FB_LIKE_WIDTH = 100,
         FB_LIKE_HEIGHT = 21,

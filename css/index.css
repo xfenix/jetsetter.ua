@@ -1092,7 +1092,6 @@ body {
         }
         
         .comments {
-            
         }
         
             .comments .comment {
@@ -1176,6 +1175,22 @@ body {
                         padding: 10px 14px 10px 10px;
                         margin-bottom: 10px;
                     }
+                    
+        .comments2 {
+            width: 680px;
+        }
+        
+            .comments2 .comments-input .input .comment {
+                width: 590px;
+            }
+            
+            .comments2 .comment .data {
+                width: 615px;
+            }
+            
+            .comments2 .comment-level2 .data {
+                width: 550px;
+            } 
 
     .inside-content .row-also {
         border: 3px solid #000;
@@ -1207,6 +1222,73 @@ body {
                 display: inline-block;
                 padding: 0 10px;
             }
+            
+            
+    .inside-content .row-also2 {
+        margin: 0 !important;
+    }
+    
+        .inside-content .row-also2 .also-title {
+            color: #a86e3e;
+            clear: both;
+            margin-bottom: 5px;
+        }
+        
+        .inside-content .row-also2 .header-also {
+            margin-bottom: 10px;
+        }
+        
+        .inside-content .row-also2 .also-box {
+            width: 300px;
+            display: inline-block;
+            margin-right: 30px;
+            vertical-align: top;
+        }
+        
+            .inside-content .row-also2 .text-title a {
+                color: #000;
+            }
+            
+            .inside-content .row-also2 .text-title a:hover {
+                color: #a86e3e;
+            }
+        
+            .inside-content .row-also2 .also-box .also-ilu {
+                width: 100px;
+                float: left;
+                margin: 0 10px 0 0;
+            }
+        
+        .inside-content .row-also2 .also-box:last-child {
+            margin-right: 0;
+        }
+    
+    .inside-content .row-comments2 {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    
+    .inside-content .row-social2 {
+        margin-left: -20px;
+        margin-bottom: 30px;
+    }
+    
+         .inside-content .row-social2 .line-first {
+             padding-bottom: 10px !important;
+         }
+    
+        .inside-content .row-social2 .date-source {
+            margin-right: 150px !important;
+        }
+    
+/* TV inside */
+.tv-inside {
+
+}
+
+    .tv-inside .tv-lead {
+        margin-bottom: 30px;
+    }
             
 /* Search */
 .search-content {

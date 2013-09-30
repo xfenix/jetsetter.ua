@@ -540,9 +540,9 @@ body {
         top: 0;
         left: 50%;
         margin-left: -960px;
-        background: url(../upload/bg-left-bottle.png);
+        background: url(../upload/bg-left-bottle.jpg);
         width: 430px;
-        height: 908px;
+        height: 920px;
         content: ' ';
     }
 
@@ -552,14 +552,14 @@ body {
         top: 0;
         right: 50%;
         margin-right: -960px;
-        background: url(../upload/bg-right-bottle.png);
+        background: url(../upload/bg-right-bottle.jpg);
         width: 430px;
-        height: 908px;
+        height: 920px;
         content: ' ';
     }
     
     .all-head {
-        height: 95px;
+        height: 93px;
     }
     
         .all-head a:hover {
@@ -630,7 +630,7 @@ body {
                         height: 9px;
                         display: inline-block;
                         vertical-align: top;
-                        margin-top: 1px;
+                        margin-top: 3px;
                     }
                 
                 .all-head .user .menu .item2 {

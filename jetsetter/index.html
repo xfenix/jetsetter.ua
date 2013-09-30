@@ -1,0 +1,473 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/reset.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="./css/fonts.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="./css/index.css" media="all" />
+	<script type="text/javascript" src="./js/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.simplemodal.1.4.4.min.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="./js/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 10]>
+	<script type="text/javascript" src="./js/jquery.placeholder.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<section class="all relative">
+	    <div class="popups">
+            <div class="popup popup-registration" id="modal-register">
+    	        <div class="title title-center title-center-big">
+    		        <h2 class="header">Регистрация</h2>
+    		        <div class="arrow"></div>
+    	        </div>
+    	        <form action="#" method="post" class="popup-form">	        
+        	        <div class="line">
+            	        <label for="" class="label">Логин <span class="star">*</span></label>
+            	        <div class="input-wrap">
+                	        <input type="text" required="required" name="login" class="input" />
+                            <div class="error">Данный логин занят</div>
+            	        </div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Пароль <span class="star">*</span></label>
+            	        <div class="input-wrap">
+            	            <input type="password" required="required" pattern="^.{6,20}$" name="password" class="input" />
+                            <div class="error">От 6 до 20 символов!</div>
+            	        </div>
+            	        <div class="under">От 6 до 20 символов</div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Подтвердить пароль <span class="star">*</span></label>
+            	        <div class="input-wrap">
+                            <input type="password" required="required" pattern="^.{6,20}$" name="password2" class="input" />
+                            <div class="error">Мало символов!!111</div>
+            	        </div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Email <span class="star">*</span></label>    	        
+            	        <div class="input-wrap">
+                	        <input type="email" required="required" name="email" class="input" />
+                            <div class="error">Неправильный формат email</div>
+            	        </div>
+        	        </div>
+        	        <div class="line">
+            	        <a href="#" class="upload-avatar">Загрузить аватар</a>
+            	        <div class="under">
+                	        Формат картинки png, jpg, gif, размер 8000х16000
+            	        </div>
+        	        </div>
+        	        <div class="line line-double">
+            	        <label for="" class="label">Введите код с картинки <span class="star">*</span></label>
+            	        <div>
+                	        <div class="captcha">
+                    	        <img src="./upload/captcha.png" alt="" />
+                	        </div>
+                	        <div class="input-wrap">
+                    	        <input type="text" required="required" class="input" name="captcha" />
+                            <div class="error">Ошиблись с капчей</div>
+                	        </div>
+            	        </div>
+        	        </div>
+        	        <div class="line">
+            	        <a href="#" class="button submit">Зарегистрироваться</a>
+            	        <a href="#" class="link cancel">Отменить</a>
+        	        </div>
+    	        </form>
+            </div>
+            
+            <div class="popup popup-registration" id="modal-login">
+    	        <div class="title title-center title-center-big">
+    		        <h2 class="header">Вход</h2>
+    		        <div class="arrow"></div>
+    	        </div>
+    	        <form action="#" method="post" class="popup-form">	        
+        	        <div class="line">
+            	        <label for="" class="label">Логин <span class="star">*</span></label>
+            	        <div class="input-wrap">
+                	        <input type="text" required="required" name="login" class="input" />
+                            <div class="error">Заполните поле</div>
+            	        </div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Пароль <span class="star">*</span></label>
+            	        <div class="input-wrap">
+            	            <input type="password" required="required" name="password" class="input" />
+                            <div class="error">Заполните поле</div>
+            	        </div>
+        	        </div>
+        	        <div class="line line-double">
+            	        <label for="" class="label">Введите код с картинки <span class="star">*</span></label>
+            	        <div>
+                	        <div class="captcha">
+                    	        <img src="./upload/captcha.png" alt="" />
+                	        </div>
+                	        <div class="input-wrap">
+                    	        <input type="text" required="required" class="input" name="captcha" />
+                                <div class="error">Заполните поле</div>
+                	        </div>
+            	        </div>
+        	        </div>
+        	        <div class="line">
+            	        <a href="#" class="button submit">Войти</a>
+            	        <a href="#" class="link cancel">Отменить</a>
+        	        </div>
+    	        </form>
+            </div>
+	    </div>
+	    <div class="all-head-banner">
+    	    <a href="#"><img src="./upload/banner-top.jpg" alt="" /></a>
+	    </div>
+		<div class="all-head cf">
+		    <a href="#" class="logo"></a>
+		    <a href="#" class="logo-festival"></a>
+		    <a href="#" class="logo-menspecial"></a>
+		    <div class="user">
+    		    <ul class="menu">
+        		    <li class="item"><a href="#" class="link modal" rel="modal-login">Войти</a>
+        		    <li class="item"><a href="#" class="link modal" rel="modal-register">Регистрация</a>
+        		    <li class="item item2"><a href="#" class="link">Редакция</a>
+    		    </ul>
+    		    <div class="search">
+        		    <input type="text" class="field" placeholder="Поиск" />
+    		    </div>
+		    </div>
+		</div>
+		
+		<ul class="all-menu">
+    		<li class="item"><a href="#" class="link">Светские события</a>
+    		<li class="item"><a href="#" class="link">Новости</a>
+    		<li class="item"><a href="#" class="link">Trends</a>
+    		    <ul class="level2">
+    		        <li class="item2"><a href="#" class="link2">Гардероб</a>
+    		        <li class="item2"><a href="#" class="link2">Глянец</a>
+    		        <li class="item2"><a href="#" class="link2">Dress code</a>
+    		        <li class="item2"><a href="#" class="link2">Образ дня</a>
+    		        <li class="item2"><a href="#" class="link2">Digitorial</a>
+    		    </ul>
+    		<li class="item"><a href="#" class="link">Must</a>
+    		    <ul class="level2">
+    		        <li class="item2"><a href="#" class="link2">Просто длинный пункт для примера, он не переносится</a>
+    		        <li class="item2"><a href="#" class="link2">Глянец</a>
+    		    </ul>
+    		<li class="item"><a href="#" class="link">Interview</a>
+    		<li class="item"><a href="#" class="link">Глянец</a>
+    		<li class="item"><a href="#" class="link">Выбор</a>
+    		<li class="item"><a href="#" class="link">Бар</a>
+    		<li class="item"><a href="#" class="link">Видео</a>
+		</ul>
+		
+		<div class="all-content">
+		      <ul class="main-top-content">
+    		      <li class="content-rows content-row1">
+    		        <div class="carousel">
+        		        <div class="carousel-wrap">
+            		        <img src="./upload/ilu-carousel-big.jpg" class="carousel-ilu" alt="" />
+            		        
+            		        <div class="carousel-under">
+                		        <h2 class="carousel-title"><span class="special">Гардероб:</span> Валентина Грищенко</h2>
+                		        <cite class="carousel-cite">&laquo;Отдам последние деньги за красивую вещь&raquo;</cite>
+            		        </div>
+        		        </div>
+        		        <ul class="carousel-navigator">
+            		        <li class="carousel-item">
+            		            <a href="#" data-big="./upload/ilu-carousel-big2.jpg" class="carousel-link carousel-now"><img src="./upload/ilu-carousel-small.jpg" class="carousel-preview" alt="" /></a>
+            		            <div class="hide carousel-html">
+                    		        <h2 class="carousel-title"><span class="special">Гардероб:</span> Валентина Грищенко</h2>
+                    		        <cite class="carousel-cite">&laquo;Отдам последние деньги за красивую вещь&raquo;</cite>
+            		            </div>
+            		        <li class="carousel-item">
+            		            <a href="#" data-big="./upload/ilu-carousel-big.jpg" class="carousel-link"><img src="./upload/ilu-carousel-small2.jpg" class="carousel-preview" alt="" /></a>
+            		            <div class="hide carousel-html">
+                    		        <h2 class="carousel-title"><span class="special">События:</span> Scooter</h2>
+                    		        <cite class="carousel-cite">&laquo;Старый блондин поёт хаумачиздефиш&raquo;</cite>
+            		            </div>
+            		        <li class="carousel-item">
+            		            <a href="#" data-big="./upload/ilu-carousel-big2.jpg" class="carousel-link"><img src="./upload/ilu-carousel-small3.jpg" class="carousel-preview" alt="" /></a>
+            		            <div class="hide carousel-html">
+                    		        <h2 class="carousel-title"><span class="special">Новости:</span> ВВП России удвоился</h2>
+                    		        <cite class="carousel-cite">&laquo;К Путину присоединился Медведев&raquo;</cite>
+            		            </div>
+            		        <li class="carousel-item">
+            		            <a href="#" data-big="./upload/ilu-carousel-big2.jpg" class="carousel-link"><img src="./upload/ilu-carousel-small4.jpg" class="carousel-preview" alt="" /></a>
+            		            <div class="hide carousel-html">
+                    		        <h2 class="carousel-title"><span class="special">События:</span> Шерсть Короля</h2>
+                    		        <cite class="carousel-cite">&laquo;Дословный перевод имени Ланы Дель Рей делает нам совсем немного смешно&raquo;</cite>
+            		            </div>
+            		        <li class="carousel-item">
+            		            <a href="#" data-big="./upload/ilu-carousel-big.jpg" class="carousel-link"><img src="./upload/ilu-carousel-small5.jpg" class="carousel-preview" alt="" /></a>
+            		            <div class="hide carousel-html">
+                    		        <h2 class="carousel-title"><span class="special">Гардероб:</span> Валентина Грищенко</h2>
+                    		        <cite class="carousel-cite">&laquo;Отдам последние деньги за красивую вещь&raquo;</cite>
+            		            </div>
+            		        <li class="carousel-item">
+            		            <a href="#" data-big="./upload/ilu-carousel-big2.jpg" class="carousel-link"><img src="./upload/ilu-carousel-small6.jpg" class="carousel-preview" alt="" /></a>
+            		            <div class="hide carousel-html">
+                    		        <h2 class="carousel-title"><span class="special">Гардероб:</span> Валентина Грищенко</h2>
+                    		        <cite class="carousel-cite">&laquo;Отдам последние деньги за красивую вещь&raquo;</cite>
+            		            </div>
+        		        </ul>
+    		        </div>
+    		        <a href="#" class="banner"><img src="./upload/banner-mid.jpg" alt="" class="banner-ilu" /></a>
+    		      
+    		      <li class="content-rows content-row2">
+    		        <a href="#" class="banner"><img src="./upload/banner-mid-big.jpg" class="banner-ilu" alt="" /></a>
+		      </ul>
+		      <ul class="main-content">
+		        <li class="content-rows content-row1">
+    		        <div class="title title-center title-center-big">
+        		        <h2 class="header">Рубрики</h2>
+        		        <div class="arrow"></div>
+    		        </div>        		        
+    		        <div class="boxes">
+        		        <div class="cf box">
+            		        <div class="ilu-wrap">
+            		            <img src="./upload/ilu-col1.jpg" class="ilu" alt="" />
+                                <div class="ilu-label">Путевые заметки</div>
+                            </div>
+                            
+                            <h3>Елизавета Юрушева в Греции</h3>
+                            <div class="text">
+                                Елизавета Юрушева успела
+                                перенять у греческихжителей 
+                                не только секреты 
+                                расслабленного образа жизни, 
+                                но и научиться готовить 
+                                осьминогов
+                            </div>
+        		        </div>
+        		        <div class="cf box">
+            		        <div class="ilu-wrap">
+            		            <img src="./upload/ilu-col1.jpg" class="ilu" alt="" />
+                                <div class="ilu-label">Путевые заметки</div>
+                            </div>
+                            
+                            <h3>Елизавета Юрушева в Греции</h3>
+                            <div class="text">
+                                Елизавета Юрушева успела
+                                перенять у греческихжителей 
+                                не только секреты 
+                                расслабленного образа жизни, 
+                                но и научиться готовить 
+                                осьминогов
+                            </div>
+        		        </div>
+        		        <div class="cf box">
+            		        <div class="ilu-wrap">
+            		            <img src="./upload/ilu-col1.jpg" class="ilu" alt="" />
+                                <div class="ilu-label">Путевые заметки</div>
+                            </div>
+                            
+                            <h3>Елизавета Юрушева в Греции</h3>
+                            <div class="text">
+                                Елизавета Юрушева успела
+                                перенять у греческихжителей 
+                                не только секреты 
+                                расслабленного образа жизни, 
+                                но и научиться готовить 
+                                осьминогов
+                            </div>
+        		        </div>
+        		        <div class="cf box">
+            		        <div class="ilu-wrap">
+            		            <img src="./upload/ilu-col1.jpg" class="ilu" alt="" />
+                                <div class="ilu-label">Какие хочешь заголовки</div>
+                            </div>
+                            
+                            <h3>Елизавета Юрушева в Греции</h3>
+                            <div class="text">
+                                Елизавета Юрушева успела
+                                перенять у греческихжителей 
+                                не только секреты 
+                                расслабленного образа жизни, 
+                                но и научиться готовить 
+                                осьминогов
+                            </div>
+        		        </div>
+        		        <div class="cf box box-sep center">
+            		        <div class="arrow"></div>
+            		        <a href="#" class="special">Все материалы</a>
+        		        </div>
+    		        </div>
+
+		        <li class="content-rows content-row2">
+    		        <div class="title title-center title-center-big">
+        		        <h2 class="header">Светские события</h2>
+        		        <div class="arrow"></div>
+    		        </div>
+    		        <div class="cf box box-big">
+        		        <div class="ilu-wrap">
+            		        <img src="./upload/ilu-col2.jpg" alt="" class="ilu" />
+            		        <div class="ilu-under">
+                		        <div class="ilu-small-title special">Лос-Анджелес</div>
+                		        <h2 class="ilu-big-title">Звезды на премьере фильма «Элизиум»</h2>
+                		        <div class="ilu-undertitle">Метт деймон, Джоди фостер, Шарлот Клули</div>
+            		        </div>
+        		        </div>
+        		        <div class="text">
+            		        Гостями красной дорожки церемонии вручения премии, 
+                            учрежденной в 1999 году актером Р. Джеймсом Уильямсом, 
+                            стали Анна София Робб, Йэн Сомерхолдер, Келли Осборн, 
+                            Алиса Милано, Кристал Рид, Холланд Роден и другие 
+                            селебритис.
+        		        </div>
+    		        </div>
+    		        <div class="cf box box-big">
+        		        <div class="ilu-wrap">
+            		        <img src="./upload/ilu-col2.jpg" alt="" class="ilu" />
+            		        <div class="ilu-under">
+                		        <h2 class="ilu-big-title">Звезды на премьере фильма «Элизиум»</h2>
+                		        <div class="ilu-undertitle">Метт деймон, Джоди фостер, Шарлот Клули</div>
+            		        </div>
+        		        </div>
+        		        <div class="text">
+            		        Гостями красной дорожки церемонии вручения премии, 
+                            учрежденной в 1999 году актером Р. Джеймсом Уильямсом, 
+                            стали Анна София Робб, Йэн Сомерхолдер, Келли Осборн, 
+                            Алиса Милано, Кристал Рид, Холланд Роден и другие 
+                            селебритис.
+        		        </div>
+    		        </div>
+    		        <div class="cf box box-big">
+        		        <div class="ilu-wrap">
+            		        <img src="./upload/ilu-col2.jpg" alt="" class="ilu" />
+            		        <div class="ilu-under">
+                		        <h2 class="ilu-big-title">Звезды на премьере фильма «Элизиум»</h2>
+            		        </div>
+        		        </div>
+        		        <div class="text">
+            		        Гостями красной дорожки церемонии вручения премии, 
+                            учрежденной в 1999 году актером Р. Джеймсом Уильямсом, 
+                            стали Анна София Робб, Йэн Сомерхолдер, Келли Осборн, 
+                            Алиса Милано, Кристал Рид, Холланд Роден и другие 
+                            селебритис.
+        		        </div>
+    		        </div>
+    		        <div class="boxes">
+        		        <div class="cf box box-sep center">
+            		        <div class="arrow"></div>
+            		        <a href="#" class="special">Перейти в раздел «Светские события»</a>
+        		        </div>
+    		        </div>
+
+		        <li class="content-rows content-row3">
+    		        <div class="title title-center title-center-big">
+        		        <h2 class="header">Новости</h2>
+        		        <div class="arrow"></div>
+    		        </div>
+    		        <div class="boxes">
+    		            <div class="cf box box-banner">
+        		            <img src="./upload/banner-sidebar.jpg" alt="" class="ilu" />
+    		            </div>
+    		            
+            		    <div class="cf box slider">
+            		        <div class="title title-center title-center-big">
+                		        <h2 class="header">Menspecial TV</h2>
+                		        <div class="arrow"></div>
+            		        </div>
+            		        <div class="container">
+            		            <div class="slider-slides">
+                		            <ul class="slider-inf">
+                    		            <li class="slide"><img src="./upload/ilu-sidebar-hor.jpg" alt="" />
+                    		            <li class="slide">123333
+                    		            <li class="slide">
+                        		            <h2>Just html</h2>
+                    		            <li class="slide">
+                        		            <iframe width="300" height="169" src="http://www.youtube.com/embed/CxRMFwPpkBE" frameborder="0" allowfullscreen></iframe>
+                		            </ul>
+            		            </div>
+            		            <ul class="slider-pages">
+                		            <li class="page"><a href="#" class="page-link page-now"></a>
+                		            <li class="page"><a href="#" class="page-link"></a>
+                		            <li class="page"><a href="#" class="page-link"></a>
+                		            <li class="page"><a href="#" class="page-link"></a>
+            		            </ul>
+            		        </div>
+            		    </div>
+            		    
+            		    <div class="cf box">
+                		    <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FJetSetterua%2F168781521491&amp;width=300&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true&amp;appId=181129608607691" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:300px;" allowTransparency="true"></iframe>
+            		    </div>
+    		        </div>
+		      </ul>
+		</div>
+		
+		<div class="all-foot">
+		    <div class="logo"></div>
+		    <ul class="menu">
+    		    <li class="menu-item">
+    		        <ul class="menu-submenu menu-bold">
+        		        <li class="category"><a href="#" class="link category-link">Светские события</a>
+        		        <li class="category"><a href="#" class="link category-link">Новости</a>
+    		        </ul>
+    		    <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Мода</a>
+        		        <li class="item"><a href="#" class="item-link">Гардероб</a>
+        		        <li class="item"><a href="#" class="item-link">Глянец</a>
+        		        <li class="item"><a href="#" class="item-link">Dress code</a>
+        		        <li class="item"><a href="#" class="item-link">Образ дня</a>
+        		        <li class="item"><a href="#" class="item-link">Digitorial</a>
+        		        <li class="item"><a href="#" class="item-link">Трендсеттер</a>
+        		        <li class="item"><a href="#" class="item-link">Ваш выход</a>
+    		        </ul>
+    		    <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Путешествия</a>
+        		        <li class="item"><a href="#" class="item-link">Путевые заметки</a>
+        		        <li class="item"><a href="#" class="item-link">Горячая точка</a>
+        		        <li class="item"><a href="#" class="item-link">Dress code</a>
+        		        <li class="item"><a href="#" class="item-link">Чемодан</a>
+        		        <li class="item"><a href="#" class="item-link">Анкета джетсеттера</a>
+        		        <li class="item"><a href="#" class="item-link">Места</a>
+        		        <li class="item"><a href="#" class="item-link">Путеводитель</a>
+    		        </ul>
+                <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Lifestyle</a>
+        		        <li class="item"><a href="#" class="item-link">Дом</a>
+        		        <li class="item"><a href="#" class="item-link">Светская среда</a>
+        		        <li class="item"><a href="#" class="item-link">It Persona</a>
+    		        </ul>
+                <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Блоги</a>
+        		        <li class="item"><a href="#" class="item-link">Кати Осадчей</a>
+        		        <li class="item"><a href="#" class="item-link">Маши Ъ-Цукановой</a>
+        		        <li class="item"><a href="#" class="item-link">Маурицио Аскеро</a>
+        		        <li class="item"><a href="#" class="item-link">Гастросреда</a>
+    		        </ul>
+                <li class="menu-item">
+    		        <ul class="menu-submenu menu-bold">
+        		        <li class="category"><a href="#" class="link category-link">JetSetter TV</a>
+        		        <li class="category"><a href="#" class="link category-link">Спецпроекты</a>
+        		        <li class="category"><a href="#" class="link category-link">Голосования</a>
+    		        </ul>
+    		    <li class="menu-item social">
+    		        <ul class="menu-submenu menu-social">
+        		        <li class="item"><a href="#" class="item-link fb"></a>
+        		        <li class="item"><a href="#" class="item-link vk"></a>
+        		        <li class="item"><a href="#" class="item-link tw"></a>
+    		        </ul>
+		    </ul>
+		    <ul class="menu2">
+    		    <li class="item"><a href="#" class="link">Редакция</a>
+    		    <li class="item"><a href="#" class="link">Размещение рекламы</a>
+    		    <li class="item"><a href="#" class="link">Вакансии</a>
+		    </ul>
+		    <div class="donotsteal">
+		    Материалы данного сайта не могут быть использованы на других сайтах и изданиях без письменного подтверждения редакции JetSetter.<br />С более детальниыми правилами вы можете ознакомиться в разделе «Правила использования материалов портала JetSetter.ua» 
+		        <div class="counter">
+    		        COUNTER
+		        </div>
+            </div>
+            <div class="copy">
+                &copy; 2002–2013 Final Cut Media
+            </div>
+		</div>
+	</section>
+</body>
+</html>

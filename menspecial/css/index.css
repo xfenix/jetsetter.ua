@@ -204,7 +204,7 @@ p {
     }
         
         .title .arrow {
-            margin-top: -11px;
+            margin-top: -8px;
         }
     
         .title .header {
@@ -270,7 +270,7 @@ p {
     
         .title-center-big .arrow,
         .title-left-big .arrow  {
-            margin-top: -20px;
+            margin-top: -15px;
         }
     
         .title-center-big .header,
@@ -283,7 +283,7 @@ p {
         .title-center-big .header:after,
         .title-left-big .header:before,
         .title-left-big .header:after {
-            top: 8px;
+            top: 13px;
         }
       
     .title-top {
@@ -1211,10 +1211,15 @@ body {
             text-align: center;
             display: block;
             margin: 0 auto;
-            margin-top: -32px;
+            margin-top: -36px;
             clear: both;
             margin-bottom: 15px;
         }
+        
+            .inside-content .header-also:before,
+            .inside-content .header-also:after {
+                top: 13px;
+            }
         
             .inside-content .header-also h2 {
                 background: #fff;

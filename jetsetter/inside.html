@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/reset.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="./css/fonts.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="./css/index.css" media="all" />
+	<script type="text/javascript" src="./js/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.simplemodal.1.4.4.min.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="./js/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 10]>
+	<script type="text/javascript" src="./js/jquery.placeholder.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<section class="all relative">
+	    <div class="popups">
+            <div class="popup popup-registration" id="modal-register">
+    	        <div class="title title-center title-center-big">
+    		        <h2 class="header">Регистрация</h2>
+    		        <div class="arrow"></div>
+    	        </div>
+    	        <form action="#" method="post" class="popup-form">	        
+        	        <div class="line">
+            	        <label for="" class="label">Логин <span class="star">*</span></label>
+            	        <div class="input-wrap">
+                	        <input type="text" required="required" name="login" class="input" />
+                            <div class="error">Данный логин занят</div>
+            	        </div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Пароль <span class="star">*</span></label>
+            	        <div class="input-wrap">
+            	            <input type="password" required="required" pattern="^.{6,20}$" name="password" class="input" />
+                            <div class="error">От 6 до 20 символов!</div>
+            	        </div>
+            	        <div class="under">От 6 до 20 символов</div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Подтвердить пароль <span class="star">*</span></label>
+            	        <div class="input-wrap">
+                            <input type="password" required="required" pattern="^.{6,20}$" name="password2" class="input" />
+                            <div class="error">Мало символов!!111</div>
+            	        </div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Email <span class="star">*</span></label>    	        
+            	        <div class="input-wrap">
+                	        <input type="email" required="required" name="email" class="input" />
+                            <div class="error">Неправильный формат email</div>
+            	        </div>
+        	        </div>
+        	        <div class="line">
+            	        <a href="#" class="upload-avatar">Загрузить аватар</a>
+            	        <div class="under">
+                	        Формат картинки png, jpg, gif, размер 8000х16000
+            	        </div>
+        	        </div>
+        	        <div class="line line-double">
+            	        <label for="" class="label">Введите код с картинки <span class="star">*</span></label>
+            	        <div>
+                	        <div class="captcha">
+                    	        <img src="./upload/captcha.png" alt="" />
+                	        </div>
+                	        <div class="input-wrap">
+                    	        <input type="text" required="required" class="input" name="captcha" />
+                            <div class="error">Ошиблись с капчей</div>
+                	        </div>
+            	        </div>
+        	        </div>
+        	        <div class="line">
+            	        <a href="#" class="button submit">Зарегистрироваться</a>
+            	        <a href="#" class="link cancel">Отменить</a>
+        	        </div>
+    	        </form>
+            </div>
+            
+            <div class="popup popup-registration" id="modal-login">
+    	        <div class="title title-center title-center-big">
+    		        <h2 class="header">Вход</h2>
+    		        <div class="arrow"></div>
+    	        </div>
+    	        <form action="#" method="post" class="popup-form">	        
+        	        <div class="line">
+            	        <label for="" class="label">Логин <span class="star">*</span></label>
+            	        <div class="input-wrap">
+                	        <input type="text" required="required" name="login" class="input" />
+                            <div class="error">Заполните поле</div>
+            	        </div>
+        	        </div>	        
+        	        <div class="line">
+            	        <label for="" class="label">Пароль <span class="star">*</span></label>
+            	        <div class="input-wrap">
+            	            <input type="password" required="required" name="password" class="input" />
+                            <div class="error">Заполните поле</div>
+            	        </div>
+        	        </div>
+        	        <div class="line line-double">
+            	        <label for="" class="label">Введите код с картинки <span class="star">*</span></label>
+            	        <div>
+                	        <div class="captcha">
+                    	        <img src="./upload/captcha.png" alt="" />
+                	        </div>
+                	        <div class="input-wrap">
+                    	        <input type="text" required="required" class="input" name="captcha" />
+                                <div class="error">Заполните поле</div>
+                	        </div>
+            	        </div>
+        	        </div>
+        	        <div class="line">
+            	        <a href="#" class="button submit">Войти</a>
+            	        <a href="#" class="link cancel">Отменить</a>
+        	        </div>
+    	        </form>
+            </div>
+	    </div>
+	    <div class="all-head-banner">
+    	    <a href="#"><img src="./upload/banner-top.jpg" alt="" /></a>
+	    </div>
+		<div class="all-head cf">
+		    <a href="#" class="logo"></a>
+		    <a href="#" class="logo-festival"></a>
+		    <a href="#" class="logo-menspecial"></a>
+		    <div class="user">
+    		    <ul class="menu">
+        		    <li class="item"><a href="#" class="link modal" rel="modal-login">Войти</a>
+        		    <li class="item"><a href="#" class="link modal" rel="modal-register">Регистрация</a>
+        		    <li class="item item2"><a href="#" class="link">Редакция</a>
+    		    </ul>
+    		    <div class="search">
+        		    <input type="text" class="field" placeholder="Поиск" />
+    		    </div>
+		    </div>
+		</div>
+		
+		<ul class="all-menu">
+    		<li class="item"><a href="#" class="link">Светские события</a>
+    		<li class="item"><a href="#" class="link">Новости</a>
+    		<li class="item"><a href="#" class="link">Trends</a>
+    		    <ul class="level2">
+    		        <li class="item2"><a href="#" class="link2">Гардероб</a>
+    		        <li class="item2"><a href="#" class="link2">Глянец</a>
+    		        <li class="item2"><a href="#" class="link2">Dress code</a>
+    		        <li class="item2"><a href="#" class="link2">Образ дня</a>
+    		        <li class="item2"><a href="#" class="link2">Digitorial</a>
+    		    </ul>
+    		<li class="item"><a href="#" class="link">Must</a>
+    		    <ul class="level2">
+    		        <li class="item2"><a href="#" class="link2">Просто длинный пункт для примера, он не переносится</a>
+    		        <li class="item2"><a href="#" class="link2">Глянец</a>
+    		    </ul>
+    		<li class="item"><a href="#" class="link">Interview</a>
+    		<li class="item"><a href="#" class="link">Глянец</a>
+    		<li class="item"><a href="#" class="link">Выбор</a>
+    		<li class="item"><a href="#" class="link">Бар</a>
+    		<li class="item"><a href="#" class="link">Видео</a>
+		</ul>
+		
+		<div class="all-content inside-content">
+		    <div class="row-content">
+    		    <div class="content">
+    		        <div class="ilu-title-top">
+        		        <img src="./upload/ilu-inside-big.jpg" class="ilu" width="680" height="485" alt="" />
+        		        <div class="ilu-label">Путевые заметки</div>
+    		        </div>
+    		        
+    		        <h1 class="head">В Венеции открылась выставка The Future Generation Art Prize @ Venice 2013</h1>
+    		        
+    		        <div class="lead">В Венеции состоялось официальное открытие выставки The Future Generation Art Prize @ Venice 2013 &mdash; проекта-участника официальной параллельной программы 55-й Международной выставки искусств в Венеции &mdash; La Biennale di Venezia.</div>
+    		        
+    		        <div class="text">
+        		        <p>Главным гостем презентации стал патрон Премии, художник Дэмиен Херст. Также 
+    презентацию посетили Вице-премьер-министр Украины Константин Грищенко, 
+    куратор 54-й Венецианской биеннале Биче Куригер, директор Tate Modern Крис Деркона 
+    и другие. В проекте приняли участие художники из 16 стран мира: обладательница 
+    Главной премии Future Generation Art Prize 2012 Линетт Ядом-Боакье и пять лауреатов 
+    Специальной Премии - Йонатас ди Андраде (Бразилия), Миколь Ассаель (Италия), 
+    Ахмет Огют (Турция), Райанэ Табета (Ливан) и Марва Арсаниос (Ливан).</p>
+    
+    <p>Представляя новые работы, молодое поколение художников вступило в диалог 
+    с уникальным выставочным пространством венецианского палаццо Контарини 
+    Полиньяк конца ХV века.</p>
+    
+                        <div class="ilu">
+                            <div class="ilu-wrap">
+                                <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
+                                <div class="ilu-cnt" data-fb="<!-- любой уникальный url -->"></div>
+                            </div>
+                            
+                            <div class="ilu-title">
+                                владелец группы Eastone <a href="#">Виктор Пинчу</a>, художница <a href="#">Линетт Ядом-Боакье</a>, художник Дэмиен Херст
+                            </div>
+                        </div>
+    
+                        <div class="ilu">
+                            <div class="ilu-wrap">
+                                <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
+                                <div class="ilu-cnt" data-fb="http://yandex.ru/picture1263/"></div>
+                            </div>
+                            <div class="ilu-title">
+                                владелец группы Eastone <a href="#">Виктор Пинчу</a>, художница <a href="#">Линетт Ядом-Боакье</a>, художник Дэмиен Херст
+                            </div>
+                        </div>
+    
+                        <div class="ilu">
+                            <div class="ilu-wrap">
+                                <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
+                                <div class="ilu-cnt" data-fb="http://yandex.ru/picture1363/"></div>
+                            </div>
+                        </div>
+                        
+                        <p>Представляя новые работы, молодое поколение художников вступило в диалог 
+    с уникальным выставочным пространством венецианского палаццо Контарини 
+    Полиньяк конца ХV века.</p>
+    
+                        <div class="ilu">
+                            <div class="ilu-wrap">
+                                <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
+                                <div class="ilu-cnt" data-fb="http://yandex.ru/picture1563/"></div>
+                            </div>
+                            <div class="ilu-title">
+                                владелец группы Eastone <a href="#">Виктор Пинчу</a>, художница <a href="#">Линетт Ядом-Боакье</a>, художник Дэмиен Херст
+                            </div>
+                        </div>
+    		        </div>
+    		    </div>
+    		    <aside class="sidebar">
+    		        <div class="sidebar-wrap">
+            		    <div class="box box-side">
+                		    <a href="#"><img src="./upload/banner-sidebar.jpg" alt="Hennessy" /></a>
+            		    </div>
+            		    <div class="cf box box-side">
+            		        <div class="title title-center title-center-big">
+                		        <h2 class="header"><a href="#">Заголовок-ссылка</a></h2>
+                		        <div class="arrow"></div>
+            		        </div>
+            		        <a href="#"><img src="./upload/ilu-sidebar-hor.jpg" alt="" class="ilu" /></a>
+            		        <div class="container">
+                		        <h3><a href="#">В Венеции открылась  выставка The Future Generation Art Prize @ Venice 2013</a></h3>
+                		        <div class="text">
+                    		        Гланым гостем презентации стал 
+                                    патрон Премии, художник Дэмиен 
+                                    Херст. Такеж презентацию 
+                                    посетили Вице-премьер-министр 
+                                    Украины Константин Грищенко.
+                		        </div>
+            		        </div>
+            		    </div>
+            		    <div class="cf box box-side slider">
+            		        <div class="title title-center title-center-big">
+                		        <h2 class="header">Нет ссылки</h2>
+                		        <div class="arrow"></div>
+            		        </div>
+            		        <div class="container">
+            		            <div class="slider-slides">
+                		            <ul class="slider-inf">
+                    		            <li class="slide"><img src="./upload/ilu-sidebar-hor.jpg" alt="" />
+                    		            <li class="slide">123333
+                    		            <li class="slide">
+                        		            <h2>Just html</h2>
+                    		            <li class="slide">
+                        		            <iframe width="300" height="169" src="http://www.youtube.com/embed/CxRMFwPpkBE" frameborder="0" allowfullscreen></iframe>
+                		            </ul>
+            		            </div>
+            		            <ul class="slider-pages">
+                		            <li class="page"><a href="#" class="page-link page-now"></a>
+                		            <li class="page"><a href="#" class="page-link"></a>
+                		            <li class="page"><a href="#" class="page-link"></a>
+                		            <li class="page"><a href="#" class="page-link"></a>
+            		            </ul>
+            		        </div>
+            		    </div>
+            		    <div class="cf box last">
+                		    <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FJetSetterua%2F168781521491&amp;width=300&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true&amp;appId=181129608607691" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:300px;" allowTransparency="true"></iframe>
+            		    </div>
+                    </div>
+    		    </aside>
+            </div>
+            <div class="row-content row-social">
+                <div class="line line-first">
+                    <div class="date-source">
+                        <div class="date">13.05.2013</div>
+                        <div class="source">Источник: АртНетПромСбытСнабБелорусУралСибПолиНавиМедиКалиКарп</div>
+                    </div>
+                    
+                    <div class="likes">
+                        <div class="like-block">
+                            <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Freference%2Fplugins%2Flike&amp;width=450&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false&amp;appId=272457199470244" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width: 100px; height:22px;" allowTransparency="true"></iframe>
+                        </div>
+                        
+                        <div class="like-block like-pinit">
+                            <a href="http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="beside"><img src="http://assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+                        </div>
+                        
+                        <div class="like-block">
+                            <!-- Put this script tag to the <head> of your page -->
+                            <script type="text/javascript" src="http://vk.com/js/api/openapi.js?101"></script>
+                            
+                            <script type="text/javascript">
+                              VK.init({apiId: 2815976, onlyWidgets: true});
+                            </script>
+                            
+                            <!-- Put this div tag to the place, where the Like block will be -->
+                            <div id="vk_like"></div>
+                            <script type="text/javascript">
+                            VK.Widgets.Like("vk_like", {type: "mini", height: '22px'});
+                            </script>
+                        </div>
+                        
+                        <div class="like-block">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-via="papapa">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        </div>
+                        
+                        <div class="like-block">
+                            <!-- Place this tag where you want the +1 button to render. -->
+                            <div class="g-plusone" data-size="medium"></div>
+                            
+                            <!-- Place this tag after the last +1 button tag. -->
+                            <script type="text/javascript">
+                              window.___gcfg = {lang: 'ru'};
+                            
+                              (function() {
+                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                po.src = 'https://apis.google.com/js/plusone.js';
+                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                              })();
+                            </script>                        
+                        </div> 
+                    </div>
+                </div>
+                <div class="line line-second">
+                    <div class="tags-title">Теги:</div>
+                    <ul class="tags">
+                        <li class="block"><a href="#" class="tag">PinchukArtCenter</a>
+                        <li class="block"><a href="#" class="tag">Владимир Путин</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                        <li class="block"><a href="#" class="tag">Елизавета 2</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-content row-comments">                
+		        <div class="title title-left title-left-big">
+    		        <h2 class="header">Комментариев нет</h2>
+    		        <div class="arrow"></div>
+		        </div>
+		        <div class="no-comments">
+    		        Для того, чтобы добавлять комментарии к статьям, вам необходимо авторизоваться на сайте. 
+		        </div>
+		        <div class="comments">
+    		        <div class="comments-strip">
+        		        <div class="comment">
+            		        <div class="avatar">
+                		        <img src="./upload/avatar.png" alt="" />
+            		        </div>
+            		        <ul class="data">
+                		        <li class="line line-login"><a href="#" class="link">mimiananana</a>
+                		        <li class="line line-date">15.03.2009 в 21:03
+                		        <li class="line line-text">Браво Ульяне!!! Действительно очень талантливая барышня с безупречным стилем и вкусом!
+                		        <li class="line line-answer"><a href="#" class="link">Ответить</a>  
+            		        </ul>
+        		        </div>
+        		        <div class="comment comment-level2">
+            		        <div class="avatar">
+                		        <img src="./upload/avatar.png" alt="" />
+            		        </div>
+            		        <ul class="data">
+                		        <li class="line line-login"><a href="#" class="link">mimiananana</a>
+                		        <li class="line line-date">15.03.2009 в 21:03
+                		        <li class="line line-text">Браво Ульяне!!!<br />Действительно очень талантливая барышня с безупречным стилем и вкусом!
+                		        <li class="line line-answer"><a href="#" class="link">Ответить</a>  
+            		        </ul>
+        		        </div>
+        		        <div class="comment comment-level2">
+            		        <div class="avatar">
+                		        <img src="./upload/avatar.png" alt="" />
+            		        </div>
+            		        <ul class="data">
+                		        <li class="line line-login"><a href="#" class="link">mimiananana</a>
+                		        <li class="line line-date">15.03.2009 в 21:03
+                		        <li class="line line-text">Браво Ульяне!!! Действительно очень талантливая барышня с безупречным стилем и вкусом!
+                		        <li class="line line-answer"><a href="#" class="link">Ответить</a>  
+            		        </ul>
+        		        </div>
+        		        <div class="comment">
+            		        <div class="avatar">
+                		        <img src="./upload/avatar.png" alt="" />
+            		        </div>
+            		        <ul class="data">
+                		        <li class="line line-login"><a href="#" class="link">mimiananana</a>
+                		        <li class="line line-date">15.03.2009 в 21:03
+                		        <li class="line line-text">Браво Ульяне!!! Действительно очень талантливая барышня с безупречным стилем и вкусом!
+                		        <li class="line line-answer"><a href="#" class="link">Ответить</a>  
+            		        </ul>
+        		        </div>
+        		        <div class="comment comment-level2">
+            		        <div class="avatar">
+                		        <img src="./upload/avatar.png" alt="" />
+            		        </div>
+            		        <ul class="data">
+                		        <li class="line line-login"><a href="#" class="link">mimiananana</a>
+                		        <li class="line line-date">15.03.2009 в 21:03
+                		        <li class="line line-text">Браво Ульяне!!! Действительно очень талантливая барышня с безупречным стилем и вкусом!
+                		        <li class="line line-answer"><a href="#" class="link">Ответить</a>  
+            		        </ul>
+        		        </div>
+    		        </div>
+    		        <div class="comments-input">
+        		        <div class="avatar">
+                            <img src="./upload/avatar.png" alt="" />
+        		        </div>
+        		        <form class="input" action="/" method="post">
+            		        <textarea class="comment" name="comment"></textarea>
+            		        <a href="#" class="button">Отправить</a>
+        		        </form>
+    		        </div>
+		        </div>
+            </div>
+            <div class="row-content row-also">
+                <div class="header-also">
+                    <h2>Вам так же может быть интересно</h2>
+                </div>
+    		    <div class="cf box box-also">
+    		        <div class="ilu-wrap">
+    		            <a href="#"><img src="./upload/ilu-sidebar-ver.jpg" alt="" class="ilu ilu-center" /></a>
+                        <div class="ilu-label">Путевые заметки</div>
+                    </div>
+    		        <div class="container">
+        		        <h3><a href="#">В Венеции открылась  выставка The Future Generation Art Prize @ Venice 2013</a></h3>
+        		        <div class="text">
+            		        Гланым гостем презентации стал 
+                            патрон Премии, художник Дэмиен 
+                            Херст. Такеж презентацию 
+                            посетили Вице-премьер-министр 
+                            Украины Константин Грищенко.
+        		        </div>
+    		        </div>
+    		    </div>
+    		    <div class="cf box box-also">
+    		        <div class="ilu-wrap">
+    		            <a href="#"><img src="./upload/ilu-sidebar-ver.jpg" alt="" class="ilu ilu-center" /></a>
+                        <div class="ilu-label">Путевые заметки</div>
+                    </div>
+    		        <div class="container">
+        		        <h3><a href="#">В Венеции открылась  выставка The Future Generation Art Prize @ Venice 2013</a></h3>
+        		        <div class="text">
+            		        Гланым гостем презентации стал 
+                            патрон Премии, художник Дэмиен 
+                            Херст. Такеж презентацию 
+                            посетили Вице-премьер-министр 
+                            Украины Константин Грищенко.
+        		        </div>
+    		        </div>
+    		    </div>
+    		    <div class="cf box box-also">
+    		        <div class="ilu-wrap">
+    		            <a href="#"><img src="./upload/ilu-sidebar-ver.jpg" alt="" class="ilu ilu-center" /></a>
+                        <div class="ilu-label">Путевые заметки</div>
+                    </div>
+    		        <div class="container">
+        		        <h3><a href="#">В Венеции открылась  выставка The Future Generation Art Prize @ Venice 2013</a></h3>
+        		        <div class="text">
+            		        Гланым гостем презентации стал 
+                            патрон Премии, художник Дэмиен 
+                            Херст. Такеж презентацию 
+                            посетили Вице-премьер-министр 
+                            Украины Константин Грищенко.
+        		        </div>
+    		        </div>
+    		    </div>
+    		    <div class="cf box box-also">
+    		        <div class="ilu-wrap">
+    		            <a href="#"><img src="./upload/ilu-sidebar-ver.jpg" alt="" class="ilu ilu-center" /></a>
+                        <div class="ilu-label">Путевые заметки</div>
+                    </div>
+    		        <div class="container">
+        		        <h3><a href="#">В Венеции открылась  выставка The Future Generation Art Prize @ Venice 2013</a></h3>
+        		        <div class="text">
+            		        Гланым гостем презентации стал 
+                            патрон Премии, художник Дэмиен 
+                            Херст. Такеж презентацию 
+                            посетили Вице-премьер-министр 
+                            Украины Константин Грищенко.
+        		        </div>
+    		        </div>
+    		    </div>
+            </div>   
+		</div>
+		
+		<div class="all-foot">
+		    <div class="logo"></div>
+		    <ul class="menu">
+    		    <li class="menu-item">
+    		        <ul class="menu-submenu menu-bold">
+        		        <li class="category"><a href="#" class="link category-link">Светские события</a>
+        		        <li class="category"><a href="#" class="link category-link">Новости</a>
+    		        </ul>
+    		    <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Мода</a>
+        		        <li class="item"><a href="#" class="item-link">Гардероб</a>
+        		        <li class="item"><a href="#" class="item-link">Глянец</a>
+        		        <li class="item"><a href="#" class="item-link">Dress code</a>
+        		        <li class="item"><a href="#" class="item-link">Образ дня</a>
+        		        <li class="item"><a href="#" class="item-link">Digitorial</a>
+        		        <li class="item"><a href="#" class="item-link">Трендсеттер</a>
+        		        <li class="item"><a href="#" class="item-link">Ваш выход</a>
+    		        </ul>
+    		    <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Путешествия</a>
+        		        <li class="item"><a href="#" class="item-link">Путевые заметки</a>
+        		        <li class="item"><a href="#" class="item-link">Горячая точка</a>
+        		        <li class="item"><a href="#" class="item-link">Dress code</a>
+        		        <li class="item"><a href="#" class="item-link">Чемодан</a>
+        		        <li class="item"><a href="#" class="item-link">Анкета джетсеттера</a>
+        		        <li class="item"><a href="#" class="item-link">Места</a>
+        		        <li class="item"><a href="#" class="item-link">Путеводитель</a>
+    		        </ul>
+                <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Lifestyle</a>
+        		        <li class="item"><a href="#" class="item-link">Дом</a>
+        		        <li class="item"><a href="#" class="item-link">Светская среда</a>
+        		        <li class="item"><a href="#" class="item-link">It Persona</a>
+    		        </ul>
+                <li class="menu-item">
+    		        <ul class="menu-submenu">
+        		        <li class="category"><a href="#" class="category-link">Блоги</a>
+        		        <li class="item"><a href="#" class="item-link">Кати Осадчей</a>
+        		        <li class="item"><a href="#" class="item-link">Маши Ъ-Цукановой</a>
+        		        <li class="item"><a href="#" class="item-link">Маурицио Аскеро</a>
+        		        <li class="item"><a href="#" class="item-link">Гастросреда</a>
+    		        </ul>
+                <li class="menu-item">
+    		        <ul class="menu-submenu menu-bold">
+        		        <li class="category"><a href="#" class="link category-link">JetSetter TV</a>
+        		        <li class="category"><a href="#" class="link category-link">Спецпроекты</a>
+        		        <li class="category"><a href="#" class="link category-link">Голосования</a>
+    		        </ul>
+    		    <li class="menu-item social">
+    		        <ul class="menu-submenu menu-social">
+        		        <li class="item"><a href="#" class="item-link fb"></a>
+        		        <li class="item"><a href="#" class="item-link vk"></a>
+        		        <li class="item"><a href="#" class="item-link tw"></a>
+    		        </ul>
+		    </ul>
+		    <ul class="menu2">
+    		    <li class="item"><a href="#" class="link">Редакция</a>
+    		    <li class="item"><a href="#" class="link">Размещение рекламы</a>
+    		    <li class="item"><a href="#" class="link">Вакансии</a>
+		    </ul>
+		    <div class="donotsteal">
+		    Материалы данного сайта не могут быть использованы на других сайтах и изданиях без письменного подтверждения редакции JetSetter.<br />С более детальниыми правилами вы можете ознакомиться в разделе «Правила использования материалов портала JetSetter.ua» 
+		        <div class="counter">
+    		        COUNTER
+		        </div>
+            </div>
+            <div class="copy">
+                &copy; 2002–2013 Final Cut Media
+            </div>
+		</div>
+	</section>
+</body>
+</html>

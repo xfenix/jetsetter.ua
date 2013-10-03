@@ -19,6 +19,8 @@ $.fn.replaceSrc = function (src) {
 (function(){
     var HOVER_MENU_TIME = 400,
         CYCLE_TIMEOUT = 6000,
+        FB_LIKE_WIDTH = 100,
+        FB_LIKE_HEIGHT = 21,
         MAX_LOGIN_WIDTH = 100,
         isEmpty = function(value) { return /^\s*$/.test(value) };
     
@@ -225,6 +227,33 @@ $.fn.replaceSrc = function (src) {
                         underHtml.replaceHtml(replaceHtml);
                     }
                     e.preventDefault();
+                }
+            );
+        })();
+        
+        // image hovering
+        (function() {
+            var fbLikeUrl = function(url) { return "http://www.facebook.com/plugins/like.php?href=" + url + "&width=" + FB_LIKE_WIDTH + "&height=" + FB_LIKE_HEIGHT + "&colorscheme=light&layout=button_count&action=like&show_faces=false&send=false&appId=272457199470244" },
+                fbIframe = function(url) { return '<iframe src="' + fbLikeUrl(url) + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>'; },
+                ilu = $('.ilu-wrap'),
+                cnt = '.ilu-cnt',
+                mask = 'ilu-mask',
+                show = '.ilu-mask,.ilu-cnt';
+                
+            ilu.each(function() {
+                $(this).append($('<div>').addClass(mask)); 
+            });
+                
+            ilu.hover(
+                function() {
+                    var el = $(this),
+                        cntBox = el.find(cnt);
+                    if(isEmpty(cntBox.html()))
+                        cntBox.html(fbIframe(encodeURI(cntBox.data('fb'))));
+                    el.find(show).show();
+                },
+                function() {
+                    $(this).find(show).hide();
                 }
             );
         })();

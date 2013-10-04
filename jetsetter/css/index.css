@@ -21,7 +21,7 @@ h3 a:hover,
 h4 a:hover,
 h5 a:hover,
 h6 a:hover {
-    color: #a8703e;
+    color: #cf4295;
 }
 
 h1 {
@@ -372,6 +372,11 @@ a.special:hover {
             margin-bottom: -15px;
             padding: 0 10px;
         }
+        
+.box .ilu-left {
+    float: left;
+    margin: 0 20px 5px 0; 
+}
     
 /* Slider */
 .slider {
@@ -572,7 +577,7 @@ body {
     }
     
         .all-head a:hover {
-            color: #a8703e;
+            color: #cf4295;
         }
         
         .all-head .logo {
@@ -720,11 +725,50 @@ body {
             }
             
                 .all-menu .level2 .item2 .link2:hover {
-                    color: #a8703e;
+                    color: #cf4295;
                 }
         
     .all-content {
     }
+    
+        .all-content .pager {
+            margin-top: 0;
+            clear: both;
+            text-align: center;
+            position: relative;
+        }
+        
+            .all-content .pager .arrow {
+                background: #000;
+                height: 3px;
+                margin-bottom: 10px;
+                position: relative;
+            }
+            
+                .all-content .pager .separator:after {
+                    position: absolute;
+                }
+        
+            .all-content .pager .page {
+                display: inline-block;
+                padding-right: 15px;
+            }
+            
+                .all-content .pager .page-link {
+                    color: #cf4295;
+                }
+
+                .all-content .pager .page-link:hover,
+                .all-content .pager .page-current {
+                    color: #000;
+                }
+                
+            .all-content .pager .page-next {
+                position: absolute;
+                top: 10px;
+                right: 0;
+                padding-right: 0;
+            }
     
     .all-foot {
         color: #fff;
@@ -732,7 +776,7 @@ body {
     }
     
         .all-foot a:hover {
-            color: #a8703e;
+            color: #cf4295;
         }
         
         .all-foot .logo {
@@ -1050,11 +1094,11 @@ body {
     }
     
     .inside-content .content a {
-        color: #a8703e;
+        color: #000;
     }
     
     .inside-content .content a:hover {
-        color: #000;
+        color: #cf4295;
     }
 
     .inside-content .content .ilu-title-top {

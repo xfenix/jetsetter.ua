@@ -115,7 +115,7 @@ p {
 }
 
 .button {
-    background: #754d2b;
+    background: #cf4295;
     padding: 8px 10px 5px 10px;
     border-bottom: 1px solid #000;
     color: #fff;
@@ -123,7 +123,7 @@ p {
 }
 
 .button:hover {
-    background: #a86e3e;
+    background: #f06bb8;
 }
 
 .special {
@@ -132,6 +132,10 @@ p {
 
 a.special:hover {
     color: #000;
+}
+
+.marginb {
+    margin-bottom: 10px;
 }
 
 /* Arrows */
@@ -372,11 +376,16 @@ a.special:hover {
             margin-bottom: -15px;
             padding: 0 10px;
         }
-        
+     
 .box .ilu-left {
     float: left;
     margin: 0 20px 5px 0; 
+    position: relative;
 }
+
+    .box .ilu-left img {
+        display: block;
+    }
     
 /* Slider */
 .slider {
@@ -932,8 +941,8 @@ body {
             
             .main-top-content .carousel .carousel-cite {
                 font-size: 28px;
+                line-height: 28px;
                 font-family: 'Caslon540BT';
-                font-style: italic;
                 color: #7f7f7f;
             }
     
@@ -1206,7 +1215,7 @@ body {
             padding-top: 20px;
             font-family: 'ProximaNovaBold';
             font-size: 14px;
-            margin-bottom: -10px;
+            margin-bottom: -10px; 
             display: table;
         }
         
@@ -1376,6 +1385,7 @@ body {
         
             .inside-content .row-also .box .ilu {
                 display: block;
+                margin-bottom: 10px;
             }
         
             .inside-content .row-also .box .ilu:hover {

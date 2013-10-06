@@ -204,7 +204,7 @@ p {
     }
         
         .title .arrow {
-            margin-top: -8px;
+            margin-top: -11px;
         }
     
         .title .header {
@@ -303,12 +303,13 @@ p {
     
         .title-also .header:after, 
         .title-also .header:before {
-            top: 8px;
+            top: 6px;
             background: url(../img/arrows.png) -5px 0 no-repeat;
         }
         
         .title-also .arrow {
             background: #a0a0a0;
+            margin-top: -8px;
         }
         
         .title-also .arrow:before,
@@ -676,7 +677,7 @@ body {
         
             .all-menu .item .link {
                 display: block;
-                padding: 12px 20px 9px 20px;
+                padding: 10px 20px 11px 20px;
             }
             
             .all-menu .item .link:hover {

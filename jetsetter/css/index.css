@@ -1,12 +1,12 @@
 /* Base */
 a {
     font-family: 'ProximaNovaSemiBold', Sans-serif;
-	color: #fff;
-	text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -25,13 +25,13 @@ h6 a:hover {
 }
 
 h1 {
-	font-size: 32px;
-	line-height: 38px;
+    font-size: 32px;
+    line-height: 38px;
 }
 
 h2 {
-	font-size: 24px;
-	line-height: 28px;
+    font-size: 24px;
+    line-height: 28px;
 }
 
 h2.lead {
@@ -39,16 +39,16 @@ h2.lead {
 }
 
 h3 {
-	font-size: 18px;
-	line-height: 22px;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 h4 {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 h5 {
-	font-size: 14px;
+    font-size: 14px;
 }
 
 h6 {
@@ -56,14 +56,14 @@ h6 {
 }
 
 .last {
-	border-right: none !important;
-	padding-right: 0 !important;
-	margin-right: 0 !important;
-	margin-bottom: 0 !important;
+    border-right: none !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .nobg {
-	background: none !important;
+    background: none !important;
 }
 
 .hide {
@@ -75,12 +75,12 @@ h6 {
 }
 
 strong,b {
-	font-weight: bold;
-	color: #362f2d;
+    font-weight: bold;
+    color: #362f2d;
 }
 
 em,i {
-	font-style: italic;
+    font-style: italic;
 }
 
 input[type="checkbox"] {
@@ -118,7 +118,7 @@ p {
     background: #cf4295;
     padding: 8px 10px 5px 10px;
     border-bottom: 1px solid #000;
-    color: #fff;
+    color: #fff !important;
     display: inline-block;
 }
 
@@ -240,6 +240,48 @@ a.special:hover {
             font-family: 'PTSerifBold';
             font-size: 11px;
             text-transform: uppercase;
+        }
+
+.box-news-top {
+    
+}
+
+    .box-news-top .ilu-wrap .ilu {
+        display: block;
+    }
+    
+    .box-news-top .ilu-under {
+        background: #191919;
+        padding: 10px;
+        color: #fff;
+    }
+    
+        .box-news-top .ilu-small-title {
+            font-size: 11px;
+            font-family: 'PTSansBold';
+            margin-bottom: 5px;
+        }
+    
+        .box-news-top .ilu-big-title {
+            color: #fff;
+        }
+
+.box-news {
+    margin-top: -5px;
+}
+
+    .box-news .news-line {
+        margin-bottom: 15px;
+    }
+    
+        .box-news .news-line .date {
+            font-size: 11px;
+            font-family: 'PTSansBold';
+        }
+        
+        .box-news .news-line .lead,
+        .box-news .news-line .lead .link {
+            color: #000;
         }
 
 .box-sep .arrow {
@@ -570,7 +612,7 @@ body {
 }
 
 .all {
-	font: normal 14px/16px 'PTSerif';
+    font: normal 14px/16px 'PTSerif';
     width: 1060px;
     margin: 0 auto;
 }
@@ -711,7 +753,7 @@ body {
         
             .all-menu .item .link {
                 display: block;
-                padding: 12px 20px 9px 20px;
+                padding: 10px 20px 11px 20px;
             }
             
             .all-menu .item .link:hover {
@@ -922,12 +964,16 @@ body {
     
             
     .main-top-content .carousel {
-        position: relative
+        position: relative;
     }
     
         .main-top-content .carousel-ilu {
             display: block;
         }
+        
+            .main-top-content .carousel-ilu .ilu-wrap {
+                height: 430px;
+            }
         
         .main-top-content .carousel-under {
             min-height: 60px;
@@ -1436,7 +1482,7 @@ body {
         .inside-content .row-also2 .also-box {
             width: 300px;
             display: inline-block;
-            margin-right: 30px;
+            margin-left: 30px;
             vertical-align: top;
         }
         
@@ -1452,10 +1498,24 @@ body {
                 width: 100px;
                 float: left;
                 margin: 0 10px 0 0;
+                position: relative;
             }
+            
+                .inside-content .row-also2 .also-box .also-ilu .ilu-label {
+                    width: 90px;
+                    font-size: 12px;
+                }
+                
+                .inside-content .row-also2 .also-box .also-ilu .ilu-label:after {
+                    display: none;
+                }
+            
+                .inside-content .row-also2 .also-box .also-ilu  img {
+                    display: block;
+                }
         
-        .inside-content .row-also2 .also-box:last-child {
-            margin-right: 0;
+        .inside-content .row-also2 .also-box:first-child {
+            margin-left: 0;
         }
     
     .inside-content .row-comments2 {

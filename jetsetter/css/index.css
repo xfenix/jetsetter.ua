@@ -236,6 +236,16 @@ a.special:hover {
             color: #fff;
         }
         
+             .box-big .ilu-big-title a,
+             .box-news-top .ilu-big-title a {
+                 color: #fff;
+             }
+             
+             .box-big .ilu-big-title a:hover,
+             .box-news-top .ilu-big-title a:hover {
+                 color: #ac397c;
+             }
+        
         .box-big .ilu-undertitle {
             font-family: 'PTSerifBold';
             font-size: 11px;
@@ -1170,6 +1180,7 @@ body {
         font-size: 24px;
         line-height: 30px;
         margin-bottom: 30px;
+        color: #333;
     }
 
     .inside-content .content .ilu {
@@ -1372,6 +1383,7 @@ body {
                         .comments .comment .data .line-text {
                             line-height: 20px;
                             margin-bottom: 5px;
+                            font-size: 14px;
                         }
         
             .comments-strip {

@@ -182,6 +182,19 @@ a.special:hover {
     text-align: center;
 }
 
+.box-side {
+    margin-bottom: 30px;
+}
+
+    .box-side .ilu {
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .box-side h3 {
+        margin-bottom: 5px;
+    }
+
 .box-center {
     width: 300px;
     padding: 0 15px;

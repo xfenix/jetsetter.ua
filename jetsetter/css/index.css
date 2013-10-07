@@ -189,6 +189,7 @@ a.special:hover {
 }
 
 .box-also {
+    vertical-align: top;
     display: inline-block;
     width: 220px;
     padding: 0 10px;

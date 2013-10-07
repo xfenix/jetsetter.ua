@@ -217,6 +217,7 @@ $.fn.replaceSrc = function (src) {
                 'click',
                 function(e) {
                     var me = $(this),
+                        bigUrl = me.attr('href'),
                         bigImg = me.data('big'),
                         replaceHtml = me.next().html(),
                         now = $('.' + nowClass);
@@ -224,6 +225,7 @@ $.fn.replaceSrc = function (src) {
                         $('.' + nowClass).removeClass(nowClass);
                         me.addClass(nowClass);
                         mainImg.replaceSrc(bigImg);
+                        mainImg.parent().attr('href', bigUrl);
                         underHtml.replaceHtml(replaceHtml);
                     }
                     e.preventDefault();

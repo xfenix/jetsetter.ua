@@ -307,6 +307,10 @@ a.special:hover {
         .box-news .news-line .lead .link {
             color: #000;
         }
+        
+        .box-news .news-line .lead .link:hover {
+            color: #cf4295;
+        }
 
 .box-sep .arrow {
     margin-bottom: 10px;

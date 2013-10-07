@@ -178,6 +178,15 @@ a.special:hover {
     margin-bottom: 25px;
 }
 
+    .box .ilu {
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .box h3 {
+        margin-bottom: 5px;
+    }
+
 .box-side-center {
     text-align: center;
 }
@@ -185,15 +194,6 @@ a.special:hover {
 .box-side {
     margin-bottom: 30px;
 }
-
-    .box-side .ilu {
-        margin-bottom: 10px;
-        display: block;
-    }
-    
-    .box-side h3 {
-        margin-bottom: 5px;
-    }
 
 .box-center {
     width: 300px;
@@ -237,6 +237,10 @@ a.special:hover {
         padding: 10px 10px;
     }
     
+        .box-big .ilu {
+            margin-bottom: 0;
+        }
+    
         .box-big .ilu-small-title {
             font-family: 'PTSansBold';
             font-size: 11px;
@@ -272,6 +276,7 @@ a.special:hover {
 
     .box-news-top .ilu-wrap .ilu {
         display: block;
+        margin-bottom: 0;
     }
     
     .box-news-top .ilu-under {
@@ -311,6 +316,10 @@ a.special:hover {
         .box-news .news-line .lead .link:hover {
             color: #cf4295;
         }
+        
+.box-banner .ilu {
+    margin-bottom: 0;
+}
 
 .box-sep .arrow {
     margin-bottom: 10px;
@@ -979,7 +988,6 @@ body {
     
         .main-top-content .content-row1 .banner {
             display: block;
-            border: 1px solid #d9d9d9;
         }
         
             .main-top-content .content-row1 .banner-ilu {

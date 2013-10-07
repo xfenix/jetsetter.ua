@@ -1371,6 +1371,11 @@ body {
                     display: inline-block;
                     vertical-align: top;
                     margin-top: -7px;
+                    width: 955px;
+                }
+                
+                .comments .comment-level2 .data {
+                    width: 890px;
                 }
                 
                     .comments .comment .data .line {

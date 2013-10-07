@@ -1181,7 +1181,8 @@ body {
         font-size: 24px;
         line-height: 30px;
         margin-bottom: 30px;
-        color: #333;
+        color: #7f7f7f;
+        margin-top: 10px;
     }
 
     .inside-content .content .ilu {

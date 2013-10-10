@@ -857,6 +857,13 @@ body {
                 right: 0;
                 padding-right: 0;
             }
+                
+            .all-content .pager .page-prev {
+                position: absolute;
+                top: 10px;
+                left: 0;
+                padding-right: 0;
+            }
     
     .all-foot {
         color: #fff;
@@ -958,6 +965,10 @@ body {
                 position: absolute;
                 top: 0;
                 right: 0;
+            }
+            
+            .all-foot .donotsteal a {
+                font-family: 'PTSerif';
             }
         
         .all-foot .copy {

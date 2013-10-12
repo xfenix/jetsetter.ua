@@ -127,11 +127,11 @@ p {
 }
 
 .special {
-    color: #cf4295;
+    color: #cf4295 !important;
 }
 
 a.special:hover {
-    color: #000;
+    color: #000 !important;
 }
 
 .marginb {
@@ -208,6 +208,17 @@ a.special:hover {
     padding: 0 10px;
     margin-bottom: 0;
 }
+
+.box-also-vote {
+    text-align: left !important;
+    margin-bottom: 10px;
+}
+
+    .box-also-vote .date {
+        color: #666;
+        font-size: 11px;
+        font-family: 'PTSansBold';
+    }
 
 .box-banner {
     border: 1px solid #a09fa4;
@@ -1598,3 +1609,14 @@ body {
         .inside-content .row-social2 .date-source {
             margin-right: 150px !important;
         }
+
+/*
+    Votes
+*/
+.inside-vote-only {
+    
+}
+
+    .inside-vote-only .inside-header-vote {
+        margin-bottom: 15px;
+    }

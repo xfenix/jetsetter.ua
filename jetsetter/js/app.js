@@ -259,5 +259,44 @@ $.fn.replaceSrc = function (src) {
                 }
             );
         })();
+
+        // vote slider
+        (function() {
+            var nowItem = 0,
+                totalItems = 0,
+                totalMinusItems = 0,
+                itemWidth = 
+                root = $('.vote'),
+                wrap = root.find('.vote-wrap'),
+                items = root.find('.vote-item'),
+                inf = root.find('.vote-inf'),
+                links = root.find('.vote-arrow-link'),
+                moveFn = function() {
+                    inf.animate({left: -nowItem*itemWidth});
+                },
+                clickFn = function(dir) {
+                    nowItem = dir ? nowItem + 1 : nowItem - 1;
+                    nowItem = nowItem < 0 ? 0 : nowItem;
+                    nowItem = nowItem >= totalItems - 1 ? totalItems - 1 : nowItem;
+                };
+
+            items.each(function(i) {
+                totalItems++;
+                if(i == 0)
+                    itemWidth = $(this).width() + parseInt($(this).css('marginRight'));
+            });
+
+            totalMinusItems = Math.round(wrap.width() / itemWidth);
+            totalItems = totalItems - totalMinusItems;
+
+            links.on(
+                'click',
+                function(e) {
+                    clickFn($(this).hasClass('vote-link-right') ? true : false);
+                    moveFn();
+                    e.preventDefault();
+                }
+            );
+        })();
     });
 })();

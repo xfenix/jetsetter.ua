@@ -545,6 +545,10 @@ a.special:hover {
         .row-vote .arrow:before {
             background-position: -1px 0;
         }
+
+    .row-vote2 .title {
+        width: 620px;
+    }
      
 .box .ilu-left {
     float: left;
@@ -1706,6 +1710,11 @@ body {
     position: relative;
 }
 
+.row-vote,
+.row-vote2 {
+    margin-bottom: 0;
+}
+
     .vote-wrap {
         width: 640px;
         overflow: hidden;
@@ -1713,6 +1722,15 @@ body {
 
     .row-vote .vote-wrap {
         width: 940px;
+    }
+    
+    .row-vote2 {
+        margin-left: -20px;
+        width: 700px;
+    }
+
+    .row-vote2 .vote-wrap {
+        width: 640px;
     }
 
     .vote-arrow {

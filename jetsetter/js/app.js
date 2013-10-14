@@ -286,7 +286,7 @@ $.fn.replaceSrc = function (src) {
                     itemWidth = $(this).width() + parseInt($(this).css('marginRight'));
             });
 
-            totalMinusItems = Math.round(wrap.width() / itemWidth);
+            totalMinusItems = Math.floor(wrap.width() / itemWidth);
             totalItems = totalItems - totalMinusItems;
 
             links.on(
@@ -297,6 +297,16 @@ $.fn.replaceSrc = function (src) {
                     e.preventDefault();
                 }
             );
+        })();
+
+        // small radio append
+        (function() {
+            $('input[type="radio"]').each(function(i) {
+                var me = $(this),
+                    id = 'radiobutton' + i;
+                me.attr('id', id);
+                me.next().attr('for', id);
+            });
         })();
     });
 })();

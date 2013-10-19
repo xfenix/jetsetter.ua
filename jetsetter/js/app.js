@@ -211,7 +211,14 @@ $.fn.replaceSrc = function (src) {
                 navLink = root.find('.carousel-link'),
                 mainImg = root.find('.carousel-ilu'),
                 underHtml = root.find('.carousel-under'),
-                nowClass = 'carousel-now';
+                nowClass = 'carousel-now',
+                preloadRoot = $('<div/>').addClass('preload').hide();
+
+            // preloading
+            $('body').append(preloadRoot);
+            navLink.each(function() {
+                preloadRoot.append($('<img/>').attr('src', $(this).data('big')));
+            });
             
             navLink.on(
                 'click',

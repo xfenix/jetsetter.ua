@@ -181,6 +181,7 @@ p {
 
 .box-also {
     display: inline-block;
+    vertical-align: top;
     width: 220px;
     padding: 0 10px;
     margin-bottom: 0;

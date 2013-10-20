@@ -549,6 +549,46 @@ a.special:hover {
     .row-vote2 .title {
         width: 620px;
     }
+
+    .title-blog {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 0;
+        margin-bottom: 20px;
+        clear: both;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .title-blog .ilu-icon,
+        .title-blog h3 {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .title-blog .ilu-icon {
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+
+            .title-blog .ilu-icon img {
+                display: block;
+            }
+
+        .title-blog h3 {
+            max-width: 500px;
+            vertical-align: bottom;
+        }
+
+        .title-blog .right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+    .title-blog-article {
+        margin-bottom: 5px;
+        padding-bottom: 0;
+    }
      
 .box .ilu-left {
     float: left;
@@ -558,6 +598,37 @@ a.special:hover {
 
     .box .ilu-left img {
         display: block;
+    }
+
+.box-blog {
+
+}
+
+    .box-blog .date {
+        font-family: 'PTSansBold';
+        font-size: 11px;
+    }
+
+    .box-blog .title-blog-list {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    
+    /*
+        only for blogs list
+        because more link gets "unpredictable" margin
+    */
+    .box-blog p {
+        margin-bottom: 0 !important;
+        margin-top: 20px;
+    }
+
+    .box-blog p:first-child {
+        margin-top: 0;
+    }
+
+    .box-blog .more {
+        margin-top: 10px;
     }
     
 /* Slider */
@@ -1478,7 +1549,7 @@ body {
             font-size: 11px;
             font-family: 'PTSerifBold';
             color: #999;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         
         .inside-content .row-comments .title {

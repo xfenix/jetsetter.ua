@@ -1843,7 +1843,7 @@ body {
 
         .vote-arrow-link {
             position: absolute;
-            display: block;
+            display: none;
             width: 20px;
             height: 36px;
             top: 153px;
@@ -1878,7 +1878,8 @@ body {
 
     .vote-inf {
         position: relative;
-        width: 32000px;
+        text-align: center;
+        white-space: nowrap;
     }
 
         .vote-item {
@@ -1899,6 +1900,7 @@ body {
 
             .vote-item .vote-title {
                 padding: 10px 0;
+                white-space: normal;
             }
 
         .vote-over {

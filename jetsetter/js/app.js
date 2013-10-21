@@ -269,41 +269,81 @@ $.fn.replaceSrc = function (src) {
 
         // vote slider
         (function() {
-            var nowItem = 0,
-                totalItems = 0,
-                totalMinusItems = 0,
-                itemWidth = 
-                root = $('.vote'),
-                wrap = root.find('.vote-wrap'),
-                items = root.find('.vote-item'),
-                inf = root.find('.vote-inf'),
-                links = root.find('.vote-arrow-link'),
-                moveFn = function() {
-                    inf.animate({left: -nowItem*itemWidth});
+            var root = $('.vote-slider'),
+                keyDirs = {
+                    37: false, // left
+                    39: true   // right
                 },
-                clickFn = function(dir) {
-                    nowItem = dir ? nowItem + 1 : nowItem - 1;
-                    nowItem = nowItem < 0 ? 0 : nowItem;
-                    nowItem = nowItem >= totalItems - 1 ? totalItems - 1 : nowItem;
-                };
+                triggerNow = null,
+                animateGlobalLock = false;
 
-            items.each(function(i) {
-                totalItems++;
-                if(i == 0)
-                    itemWidth = $(this).width() + parseInt($(this).css('marginRight'));
+            // local vote sliders
+            root.each(function(i) {
+                var localRoot = $(this),
+                    wrap = localRoot.find('.vote-wrap'),
+                    items = localRoot.find('.vote-item'),
+                    inf = localRoot.find('.vote-inf'),
+                    links = localRoot.find('.vote-arrow-link'),
+                    nowItem = 0,
+                    totalItems = 0,
+                    totalVisibleItems = 0,
+                    totalMinusVisible = 0,
+                    itemWidth = 0,
+                    uniqueTrigger = 'voteGlobalTrigger' + i,
+                    moveFn = function(dir) {
+                        if (animateGlobalLock)
+                            return false;
+                        nowItem = dir ? nowItem + 1 : nowItem - 1;
+                        nowItem = nowItem < 0 ? 0 : nowItem;
+                        nowItem = nowItem >= totalMinusVisible ? totalMinusVisible : nowItem;
+                        animateGlobalLock = true;
+                        inf.animate(
+                            {left: -nowItem*itemWidth},
+                            function() {
+                                animateGlobalLock = false;
+                            }
+                        );
+                    };
+
+                items.each(function(i) {
+                    totalItems++;
+                    if(i == 0)
+                        itemWidth = $(this).width() + parseInt($(this).css('marginRight'));
+                });
+
+                totalVisibleItems = Math.ceil(wrap.width() / itemWidth);
+                totalMinusVisible = totalItems - totalVisibleItems;
+
+                if(totalItems > totalVisibleItems) {
+                    links.show();
+
+                    links.on(
+                        'click',
+                        function(e) {
+                            moveFn($(this).hasClass('vote-link-right') ? true : false);
+                            e.preventDefault();
+                        }
+                    );
+
+                    // events
+                    localRoot.hover(
+                        function() {
+                            triggerNow = uniqueTrigger;
+                        },
+                        function() {
+                            triggerNow = null;
+                        }
+                    );
+
+                    $(document).on(uniqueTrigger, function(e, dir) { moveFn(dir); });
+                }
             });
 
-            totalMinusItems = Math.floor(wrap.width() / itemWidth);
-            totalItems = totalItems - totalMinusItems;
-
-            links.on(
-                'click',
-                function(e) {
-                    clickFn($(this).hasClass('vote-link-right') ? true : false);
-                    moveFn();
-                    e.preventDefault();
-                }
-            );
+            // listen key events
+            $(document).keydown(function(e) {
+                if(triggerNow && Object.keys(keyDirs).indexOf(e.which))
+                    $(document).trigger(triggerNow, [ keyDirs[e.which] ]);
+            });
         })();
 
         // small radio append

@@ -381,6 +381,6 @@ $.fn.replaceSrc = function (src) {
             });
         })();
 
-        $('.lazy').unveil();
+        // $('.lazy').unveil();
     });
 })();

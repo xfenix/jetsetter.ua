@@ -19,6 +19,7 @@ $.fn.replaceSrc = function (src) {
 (function(){
     var HOVER_MENU_TIME = 400,
         CYCLE_TIMEOUT = 6000,
+        CYCLE_CAROUSEL_TIMEOUT = 8000,
         FB_LIKE_WIDTH = 100,
         FB_LIKE_HEIGHT = 21,
         MAX_LOGIN_WIDTH = 100,
@@ -212,32 +213,55 @@ $.fn.replaceSrc = function (src) {
                 mainImg = root.find('.carousel-ilu'),
                 underHtml = root.find('.carousel-under'),
                 nowClass = 'carousel-now',
-                preloadRoot = $('<div/>').addClass('preload').hide();
+                preloadRoot = $('<div/>').addClass('preload').hide(),
+                cycleHandler = null,
+                choose = function(item) {
+                    var bigUrl = item.attr('href'),
+                        bigImg = item.data('big'),
+                        replaceCnt   = item.next().html(),
+                        now = $('.' + nowClass);
+                    if(now[0] != item[0]) {
+                        $('.' + nowClass).removeClass(nowClass);
+                        item.addClass(nowClass);
+                        mainImg.replaceSrc(bigImg);
+                        mainImg.parent().attr('href', bigUrl);
+                        underHtml.replaceHtml(replaceCnt);
+                    }
+                },
+                cycle = function() {
+                    cycleHandler = setInterval(
+                        function() {
+                            var now = $('.' + nowClass),
+                                index = now.data('index'),
+                                next = navLink[index + 1];
+                            choose(
+                                typeof next == 'undefined' ? navLink.first() : $(next)
+                            );
+                        },
+                        CYCLE_CAROUSEL_TIMEOUT
+                    );
+                };
 
             // preloading
             $('body').append(preloadRoot);
-            navLink.each(function() {
+            navLink.each(function(i) {
+                $(this).data('index', i);
                 preloadRoot.append($('<img/>').attr('src', $(this).data('big')));
             });
             
+            // click
             navLink.on(
                 'click',
                 function(e) {
-                    var me = $(this),
-                        bigUrl = me.attr('href'),
-                        bigImg = me.data('big'),
-                        replaceHtml = me.next().html(),
-                        now = $('.' + nowClass);
-                    if(now[0] != me[0]) {
-                        $('.' + nowClass).removeClass(nowClass);
-                        me.addClass(nowClass);
-                        mainImg.replaceSrc(bigImg);
-                        mainImg.parent().attr('href', bigUrl);
-                        underHtml.replaceHtml(replaceHtml);
-                    }
+                    choose($(this));
+                    clearTimeout(cycleHandler);
+                    cycle();
                     e.preventDefault();
                 }
             );
+
+            // cycle
+            cycle();
         })();
         
         // image hovering
@@ -275,7 +299,8 @@ $.fn.replaceSrc = function (src) {
                     39: true   // right
                 },
                 triggerNow = null,
-                animateGlobalLock = false;
+                animateGlobalLock = false,
+                globalTriggerKey = 'voteGlobalTrigger';
 
             // local vote sliders
             root.each(function(i) {
@@ -289,7 +314,7 @@ $.fn.replaceSrc = function (src) {
                     totalVisibleItems = 0,
                     totalMinusVisible = 0,
                     itemWidth = 0,
-                    uniqueTrigger = 'voteGlobalTrigger' + i,
+                    uniqueTrigger = globalTriggerKey + i,
                     moveFn = function(dir) {
                         if (animateGlobalLock)
                             return false;
@@ -341,7 +366,7 @@ $.fn.replaceSrc = function (src) {
 
             // listen key events
             $(document).keydown(function(e) {
-                if(triggerNow && Object.keys(keyDirs).indexOf(e.which))
+                if(triggerNow && Object.keys(keyDirs).indexOf(e.which.toString()) > -1)
                     $(document).trigger(triggerNow, [ keyDirs[e.which] ]);
             });
         })();

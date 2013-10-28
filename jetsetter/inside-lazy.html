@@ -17,7 +17,14 @@
 	<script type="text/javascript" src="./js/jquery.placeholder.js"></script>
 	<![endif]-->
     <script>
-        $('.lazy').unveil();
+    $(function() {
+        // EXAMPLE CODE, DO NOT COPY THIS
+        $('.lazy').unveil(0, function() {
+            $(this).load(function() {
+                $(this).attr('width', '680')
+            });
+        });
+    })
     </script>
 </head>
 <body>
@@ -168,7 +175,7 @@
 		    <div class="row-content">
     		    <div class="content">
     		        <div class="ilu-title-top">
-        		        <img src="./upload/ilu-inside-big.jpg" class="ilu" width="680" height="485" alt="" />
+        		        <img src="./upload/ilu-inside-big.jpg" class="ilu" height="485" alt="" />
         		        <div class="ilu-label">Путевые заметки</div>
     		        </div>
     		        
@@ -191,7 +198,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy" width="680" data-src="http://www.wallsgeneration.ru/images/original/zhirafy-[1280x960]-[5030903].jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy" data-src="http://www.wallsgeneration.ru/images/original/zhirafy-[1280x960]-[5030903].jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -203,7 +210,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://www.wallsgeneration.ru/images/original/otrazhaetsya-v-vode-[1600x1200]-[20983482].jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://www.wallsgeneration.ru/images/original/otrazhaetsya-v-vode-[1600x1200]-[20983482].jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -215,7 +222,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://domashnie-koshki.info/cat_breeds/angorskaya_koshka/photo/angorskaya_koshka_04_large.jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://domashnie-koshki.info/cat_breeds/angorskaya_koshka/photo/angorskaya_koshka_04_large.jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -227,7 +234,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://www.look.com.ua/download.php?file=201209/1680x1050/look.com.ua-33051.jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://www.look.com.ua/download.php?file=201209/1680x1050/look.com.ua-33051.jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -239,7 +246,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://img.uz/d/2013/03/513e1aa67d2a3.jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://img.uz/d/2013/03/513e1aa67d2a3.jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -251,7 +258,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="./upload/ilu-inside-big.jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="./upload/ilu-inside-big.jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -263,7 +270,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://shefoni.com/wp-content/uploads/2013/07/Grumpy-Cat-Wallpaper-HD.jpg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://shefoni.com/wp-content/uploads/2013/07/Grumpy-Cat-Wallpaper-HD.jpg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -275,7 +282,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://www.whalesonggames.com/forums/attachment.php?s=5cf88e66426d3a4caa58b56a701f8c8a&attachmentid=5035&d=1371253132" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://www.whalesonggames.com/forums/attachment.php?s=5cf88e66426d3a4caa58b56a701f8c8a&attachmentid=5035&d=1371253132" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -287,7 +294,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://blog.catmoji.com/wp-content/uploads/2012/09/lying-tard.jpeg" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://blog.catmoji.com/wp-content/uploads/2012/09/lying-tard.jpeg" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -299,7 +306,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://th07.deviantart.net/fs70/PRE/f/2011/288/3/c/nothing_to_do_here_by_rober_raik-d4cxltj.png" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://th07.deviantart.net/fs70/PRE/f/2011/288/3/c/nothing_to_do_here_by_rober_raik-d4cxltj.png" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>
@@ -311,7 +318,7 @@
                         </div>
                         <div class="ilu">
                             <div class="ilu-wrap">
-                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  width="680" data-src="http://th05.deviantart.net/fs71/PRE/f/2011/288/4/b/no__by_rober_raik-d4cw1io.png" />
+                                <img src="./img/loading.gif" alt="" class="ilu-img lazy"  data-src="http://th05.deviantart.net/fs71/PRE/f/2011/288/4/b/no__by_rober_raik-d4cw1io.png" />
                                 <noscript>
                                     <img src="./upload/ilu-inside-big.jpg" alt="" class="ilu-img" />
                                 </noscript>

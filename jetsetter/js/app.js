@@ -380,7 +380,5 @@ $.fn.replaceSrc = function (src) {
                 me.next().attr('for', id);
             });
         })();
-
-        // $('.lazy').unveil();
     });
 })();

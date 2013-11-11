@@ -703,6 +703,7 @@ a.special:hover {
             position: relative;
             margin-top: 20px;
             position: relative;
+            width: 280px;
         }
         
         .popup-form .line:first-child {
@@ -723,7 +724,7 @@ a.special:hover {
             }
             
                 .popup-form .input {
-                    padding: 3px 10px;
+                    padding: 3px 9px;
                     width: 260px;
                     height: 24px;
                     line-height: 24px;
@@ -777,19 +778,24 @@ a.special:hover {
                 margin-right: 15px;    
             }
             
+            .popup-form .line-double .captcha {
+                width: 90px;
+                height: 30px;
+                white-space: nowrap;
+            }
+
+                .popup-form .line-double .captcha img {
+                    display: block;
+                }
+            
+            .popup-form .line-double .input {
+                width: 150px;
+            }
+            
             .popup-form .line-double .captcha,
             .popup-form .line-double .input-wrap {
                 display: inline-block;
                 vertical-align: top;
-            }
-            
-            .popup-form .line-double .captcha {
-                width: 90px;
-                height: 30px;
-            }
-            
-            .popup-form .line-double .input {
-                width: 149px;
             }
 
     .popup-registration {

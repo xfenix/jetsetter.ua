@@ -808,6 +808,7 @@ body {
             height: 32px;
             width: 219px;
             margin-bottom: 40px;
+            display: block;
         }
         
         .all-foot .menu {

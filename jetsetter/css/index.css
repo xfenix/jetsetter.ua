@@ -630,6 +630,50 @@ a.special:hover {
     .box-blog .more {
         margin-top: 10px;
     }
+
+.box-sideblog {
+
+}
+
+    .box-sideblog-title {
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+        .box-sideblog-title .ilu-blog {
+            vertical-align: top;
+            display: inline-block;
+            margin-right: 10px;
+            width: 95px;
+            height: 95px;
+        }
+
+        .box-sideblog-title .blog-title {
+            vertical-align: bottom;
+            display: inline-block;
+            width: 190px;
+            margin: 0;
+            padding: 0 0 2px 0;
+            line-height: 18px;
+        }
+
+        .box-sideblog-title .blog-title,
+        .box-sideblog-title .blog-title a {
+            font-family: 'ProximaNovaBold';
+        }
+
+    .box-sideblog-cnt {
+
+    }
+
+        .box-sideblog-cnt .date {
+            font-family: 'PTSansBold';
+            font-size: 11px;
+            color: #cf4295;
+        }
+
+        .box-sideblog-cnt .blog-title {
+            margin-bottom: 5px;
+        }
     
 /* Slider */
 .slider {
@@ -988,6 +1032,8 @@ body {
                 }
         
     .all-content {
+        color: #4c4c4c;
+        line-height: 20px;
     }
     
         .all-content .pager {

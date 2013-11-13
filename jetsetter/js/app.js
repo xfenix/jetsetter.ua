@@ -229,6 +229,7 @@ $.fn.replaceSrc = function (src) {
                     }
                 },
                 cycle = function() {
+                    uncycle();
                     cycleHandler = setInterval(
                         function() {
                             var now = $('.' + nowClass),
@@ -240,28 +241,38 @@ $.fn.replaceSrc = function (src) {
                         },
                         CYCLE_CAROUSEL_TIMEOUT
                     );
+                },
+                uncycle = function() {
+                    clearTimeout(cycleHandler);
+                    cycleHandler = null;
                 };
 
-            // preloading
-            $('body').append(preloadRoot);
-            navLink.each(function(i) {
-                $(this).data('index', i);
-                preloadRoot.append($('<img/>').attr('src', $(this).data('big')));
-            });
-            
-            // click
-            navLink.on(
-                'click',
-                function(e) {
-                    choose($(this));
-                    clearTimeout(cycleHandler);
-                    cycle();
-                    e.preventDefault();
-                }
-            );
+            if(root.length) {
+                // preloading
+                $('body').append(preloadRoot);
+                navLink.each(function(i) {
+                    $(this).data('index', i);
+                    preloadRoot.append($('<img/>').attr('src', $(this).data('big')));
+                });
+                
+                // click
+                navLink.on(
+                    'click',
+                    function(e) {
+                        choose($(this));
+                        cycle();
+                        e.preventDefault();
+                    }
+                );
 
-            // cycle
-            cycle();
+                $(window).on('load resize scroll', function() {
+                    if(root[0].getBoundingClientRect().bottom < 1)
+                        uncycle();
+                    else
+                        if(!cycleHandler)
+                            cycle();
+                });
+            }
         })();
         
         // image hovering

@@ -28,8 +28,9 @@
         MAX_LOGIN_WIDTH = 100,
         SLIDERS_CYCLE_TIMEOUT = 6000,
         SLIDERS_TIME_SWITCH_RANDOM = true, // add small random to cycle timeout
-        SLIDERS_TIME_SWITCH_RANDOM_MAX = 200,
+        SLIDERS_TIME_SWITCH_RANDOM_MAX = 100,
         SLIDERS_TIME_GAP = 1000, // prevent sliders from cycle all at the same time
+        SLIDERS_ARROW_FADEOUT_TIME = 3000,
 
         getFacebookIframe = function(url) {
             return $('<iframe/>')
@@ -173,14 +174,21 @@
                 if(localRoot.hasClass('slider-with-arrows')) {
                     var localArrows = localRoot.find('.slider-arrow'),
                         leftArrow = localRoot.find('.slider-arrow-left .slider-arrow-link'),
-                        rightArrow = localRoot.find('.slider-arrow-right .slider-arrow-link');
+                        rightArrow = localRoot.find('.slider-arrow-right .slider-arrow-link'),
+                        localAnimHandler = null;
 
                     localRoot.hover(
                         function() {
-                            localArrows.show();
+                            clearTimeout(localAnimHandler);
+                            localArrows.fadeIn('fast');
                         },
                         function() {
-                            localArrows.hide();
+                            localAnimHandler = setTimeout(
+                                function() {
+                                    localArrows.fadeOut('fast');
+                                },
+                                SLIDERS_ARROW_FADEOUT_TIME
+                            );
                         }
                     );
 

@@ -1,29 +1,61 @@
-$.fn.replaceHtml = function (cnt) {
-    var me = this;
-    me.hide();
-    me.html(cnt);
-    me.fadeIn('slow');
-};
-
-$.fn.replaceSrc = function (src) {
-    var me = this;
-    me.fadeOut(
-        'slow',
-        function() {        
-            me.attr('src', src);
-            me.fadeIn('slow');
-        }
-    );
-};
-
 (function(){
+    "use strict";
+
+    /* global jq functions */
+    $.fn.replaceHtml = function (cnt) {
+        var me = this;
+        me.hide();
+        me.html(cnt);
+        me.fadeIn('slow');
+    };
+
+    $.fn.replaceSrc = function (src) {
+        var me = this;
+        me.fadeOut(
+            'slow',
+            function() {
+                me.attr('src', src);
+                me.fadeIn('slow');
+            }
+        );
+    };
+
+    // constants + some global functions + fb code
     var HOVER_MENU_TIME = 400,
-        CYCLE_TIMEOUT = 6000,
         CYCLE_CAROUSEL_TIMEOUT = 8000,
         FB_LIKE_WIDTH = 100,
         FB_LIKE_HEIGHT = 21,
         MAX_LOGIN_WIDTH = 100,
-        isEmpty = function(value) { return /^\s*$/.test(value) };
+        SLIDERS_CYCLE_TIMEOUT = 6000,
+        SLIDERS_TIME_SWITCH_RANDOM = true, // add small random to cycle timeout
+        SLIDERS_TIME_SWITCH_RANDOM_MAX = 200,
+        SLIDERS_TIME_GAP = 1000, // prevent sliders from cycle all at the same time
+
+        getFacebookIframe = function(url) {
+            return $('<iframe/>')
+                    .attr(
+                        'src',
+                        'http://www.facebook.com/plugins/like.php?href=' + encodeURI(url) +
+                        '&width=' + FB_LIKE_WIDTH + '&height=' + FB_LIKE_HEIGHT +
+                        '&colorscheme=light&layout=button_count&action=like&show_faces=false' +
+                        '&send=false&appId=272457199470244'
+                    )
+                    .attr('scrolling', 'no')
+                    .attr('frameborder', 0)
+                    .attr('allowTransparency', true)
+                    .css({
+                        'border': 'none',
+                        'overflow': 'hidden',
+                        'width': FB_LIKE_WIDTH + 'px',
+                        'height': FB_LIKE_HEIGHT + 'px',
+                    }); 
+        },
+        isEmpty = function(value) {
+            return /^\s*$/.test(value) 
+        },
+        getRandInt = function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
     
     $(function(){
         // fix too looooooong user login
@@ -74,63 +106,105 @@ $.fn.replaceSrc = function (src) {
         
         // slider
         (function() {
-            var root = $('.slider'),
-                slides = root.find('.slider-slides'),
-                slidesMove = slides.find('.slider-inf'),
-                slide = slides.find('.slide'),
-                pager = root.find('.slider-pages'),
-                pageLink = pager.find('.page-link'),
-                pageAttr = 'page',
-                pageNow = 'page-now',
-                slideWidth = slides.width(),
-                slideNow = 0,
-                slideMax = 0,
-                cycleHandler = null,
-                changeNow = function(direction) {
-                    slideNow += direction ? 1 : -1;
-                    slideNow  = slideNow < 0 ? slideMax - 1 : slideNow;
-                    slideNow  = slideNow >= slideMax ?  0 : slideNow; 
-                },
-                choosePage = function(item, page) {
-                    slideNow = item;
-                    pageLink.removeClass(pageNow);
-                    if(page)
-                        page.addClass(pageNow);
-                    else
-                        pageLink.each(function(i) {
-                             if(i == item) {
-                                 $(this).addClass(pageNow);
-                             }
-                        });
-                },
-                moveSlider = function() {
-                    choosePage(slideNow);
-                    slidesMove.animate({left: -slideNow * slideWidth});
-                },
-                cycleSlider = function() {
-                    cycleHandler = setInterval(
+            var root = $('.slider');
+
+            root.each(function(sliderNumber) {
+                var localTimeout = SLIDERS_CYCLE_TIMEOUT + (
+                        SLIDERS_TIME_SWITCH_RANDOM ? getRandInt(0, SLIDERS_TIME_SWITCH_RANDOM_MAX) : 0
+                    ),
+                    localRoot = $(this),
+                    slides = localRoot.find('.slider-slides'),
+                    slidesMove = slides.find('.slider-inf'),
+                    slide = slides.find('.slide'),
+                    pager = localRoot.find('.slider-pages'),
+                    pageLink = pager.find('.page-link'),
+                    pageAttr = 'page',
+                    pageNow = 'page-now',
+                    slideWidth = slides.width(),
+                    cycleHandler = null,  
+                    slideNow = 0,
+                    slideMax = 0,
+                    changeSlide = function(direction) {
+                        slideNow += direction ? 1 : -1;
+                        slideNow  = slideNow < 0 ? slideMax - 1 : slideNow;
+                        slideNow  = slideNow >= slideMax ?  0 : slideNow; 
+                    },
+                    choosePage = function(item, page) {
+                        slideNow = item;
+                        pageLink.removeClass(pageNow);
+                        if(page)
+                            page.addClass(pageNow);
+                        else
+                            pageLink.each(function(i) {
+                                 if(i == item)
+                                     $(this).addClass(pageNow);
+                            });
+                    },
+                    moveSlider = function() {
+                        restartCycle();
+                        choosePage(slideNow);
+                        slidesMove.animate({left: -slideNow * slideWidth});
+                    },
+                    cycleSlider = function() {
+                        cycleHandler = setInterval(
+                            function() {
+                                changeSlide(true);
+                                moveSlider();
+                            },
+                            localTimeout
+                        );
+                    },
+                    restartCycle = function() {
+                        clearTimeout(cycleHandler);
+                        cycleSlider();
+                    };
+
+                pageLink.each(function(i) {
+                    $(this).data(pageAttr, i);
+                    ++slideMax;
+                });
+                
+                pageLink.click(function(e) {
+                    choosePage($(this).data(pageAttr));
+                    moveSlider();
+                    e.preventDefault();
+                });
+
+                if(localRoot.hasClass('slider-with-arrows')) {
+                    var localArrows = localRoot.find('.slider-arrow'),
+                        leftArrow = localRoot.find('.slider-arrow-left .slider-arrow-link'),
+                        rightArrow = localRoot.find('.slider-arrow-right .slider-arrow-link');
+
+                    localRoot.hover(
                         function() {
-                            changeNow(true);
-                            moveSlider();
+                            localArrows.show();
                         },
-                        CYCLE_TIMEOUT
+                        function() {
+                            localArrows.hide();
+                        }
                     );
-                };
-            
-            pageLink.each(function(i) {
-                $(this).data(pageAttr, i);
-                ++slideMax;
-            });
-            
-            pageLink.click(function(e) {
-                choosePage($(this).data(pageAttr));
-                moveSlider();
-                clearTimeout(cycleHandler);
-                cycleSlider();
-                e.preventDefault();
-            });
-            
-            cycleSlider();
+
+                    leftArrow.click(function(e) {
+                        changeSlide(false);
+                        moveSlider();
+                        e.preventDefault();
+                    });
+
+                    rightArrow.click(function(e) {
+                        changeSlide(true);
+                        moveSlider();
+                        e.preventDefault();
+                    });
+                }
+                
+                if(sliderNumber > 0)
+                    setTimeout(
+                        cycleSlider,
+                        SLIDERS_TIME_GAP*sliderNumber
+                    );
+                else
+                    cycleSlider();
+            })
         })();
         
         // modal
@@ -185,7 +259,11 @@ $.fn.replaceSrc = function (src) {
                            
                         if(req) {
                             if(fieldType == 'email') {
-                                localValid = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+                                var re = new RegExp(
+                                    "/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)\
+                                    +([a-zA-Z0-9]{2,4})+$/"
+                                );
+                                localValid = re.test(value);
                             }
                             else if(pattern) {
                                 var re = new RegExp(pattern);
@@ -277,9 +355,7 @@ $.fn.replaceSrc = function (src) {
         
         // image hovering
         (function() {
-            var fbLikeUrl = function(url) { return "http://www.facebook.com/plugins/like.php?href=" + url + "&width=" + FB_LIKE_WIDTH + "&height=" + FB_LIKE_HEIGHT + "&colorscheme=light&layout=button_count&action=like&show_faces=false&send=false&appId=272457199470244" },
-                fbIframe = function(url) { return '<iframe src="' + fbLikeUrl(url) + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>'; },
-                ilu = $('.ilu-wrap'),
+            var ilu = $('.ilu-wrap'),
                 cnt = '.ilu-cnt',
                 mask = 'ilu-mask',
                 show = '.ilu-mask,.ilu-cnt';
@@ -293,7 +369,9 @@ $.fn.replaceSrc = function (src) {
                     var el = $(this),
                         cntBox = el.find(cnt);
                     if(isEmpty(cntBox.html()))
-                        cntBox.html(fbIframe(encodeURI(cntBox.data('fb'))));
+                        cntBox.append(
+                            getFacebookIframe(cntBox.data('fb'))
+                        );
                     el.find(show).show();
                 },
                 function() {
@@ -311,7 +389,13 @@ $.fn.replaceSrc = function (src) {
                 },
                 triggerNow = null,
                 animateGlobalLock = false,
-                globalTriggerKey = 'voteGlobalTrigger';
+                globalTriggerKey = 'voteGlobalTrigger',
+                uniqueTriggers = [],
+                totalSliders = 0;
+
+            root.each(function(i) { 
+                totalSliders++;
+            });
 
             // local vote sliders
             root.each(function(i) {
@@ -361,21 +445,26 @@ $.fn.replaceSrc = function (src) {
                         }
                     );
 
-                    // events
-                    localRoot.hover(
-                        function() {
-                            triggerNow = uniqueTrigger;
-                        },
-                        function() {
-                            triggerNow = null;
-                        }
-                    );
+                    if(totalSliders > 1) {
+                        // events
+                        localRoot.hover(
+                            function() {
+                                triggerNow = uniqueTrigger;
+                            },
+                            function() {
+                                triggerNow = null;
+                            }
+                        );
+                    }
 
+                    uniqueTriggers.push(uniqueTrigger);
                     $(document).on(uniqueTrigger, function(e, dir) { moveFn(dir); });
                 }
             });
 
-            // listen key events
+            // 1 slider => catch all left-right key strokes
+            if(totalSliders == 1)
+                triggerNow = uniqueTriggers[0];
             $(document).keydown(function(e) {
                 if(triggerNow && Object.keys(keyDirs).indexOf(e.which.toString()) > -1)
                     $(document).trigger(triggerNow, [ keyDirs[e.which] ]);
@@ -383,6 +472,8 @@ $.fn.replaceSrc = function (src) {
         })();
 
         // small radio append
+        // radio button will work without it, but
+        // it's a little easier to work with this
         (function() {
             $('input[type="radio"]').each(function(i) {
                 var me = $(this),

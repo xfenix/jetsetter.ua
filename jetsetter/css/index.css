@@ -694,6 +694,7 @@ a.special:hover {
             display: inline-block;
             vertical-align: top;
             width: 300px;
+            position: relative;
         }
         
     .slider-pages {
@@ -717,6 +718,73 @@ a.special:hover {
             .slider-pages .page-now {
                 background-position: -7px 0;
             }
+
+    .ilu-slider,
+    .ilu-slider img {
+        display: block;
+    }
+
+    .slider-play {
+        display: block;
+        width: 101px;
+        height: 101px;
+        position: absolute;
+        background: url(../img/play.png);
+        z-index: 1000;
+        top: 50%;
+        left: 50%;
+        margin: -50px 0 0 -50px;
+    }
+
+    .slider-text {
+        background: #000;
+        color: #fff;
+        width: 100%;
+        padding: 3px 10px;
+        z-index: 999;
+        font-family: 'ProximaNovaSemiBold';
+        font-size: 14px;
+        min-height: 40px;
+    }
+
+.slider-with-arrows {
+}
+
+    .slider-with-arrows .container {
+        position: relative;
+    }
+
+    .slider-with-arrows .slider-arrow {
+        position: absolute;
+        display: none;
+        top: 50%;
+        margin-top: -42px;
+        width: 25px;
+        height: 57px;
+        z-index: 1000;
+        background: url(../img/bg-arrows-slider.png);
+    }
+
+        .slider-with-arrows .slider-arrow-link {
+            display: block;
+            width: 13px;
+            height: 25px;
+            margin: 16px 6px;
+            background: url(../img/arrows-slider.png);
+        }
+
+        .slider-with-arrows .slider-arrow-right .slider-arrow-link {
+            background-position: -13px 0;
+        }
+
+    .slider-with-arrows .slider-arrow-left {
+        left: -4px;
+    }
+
+    .slider-with-arrows .slider-arrow-right {
+        right: -4px;
+        background-position: -25px 0;
+    }
             
 /* Popup window */
 .simplemodal-overlay {

@@ -785,6 +785,14 @@ a.special:hover {
         right: -4px;
         background-position: -25px 0;
     }
+
+.slider-with-arrows2 {
+
+}
+
+    .slider-with-arrows2 .slider-arrow {
+        margin-top: -62px;
+    }
             
 /* Popup window */
 .simplemodal-overlay {
@@ -925,9 +933,6 @@ a.special:hover {
 /* Main layout */
 body {
     background: #000;
-}
-
-body {
     position: relative;
 }
 

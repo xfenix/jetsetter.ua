@@ -28,9 +28,9 @@
         MAX_LOGIN_WIDTH = 100,
         SLIDERS_CYCLE_TIMEOUT = 6000,
         SLIDERS_TIME_SWITCH_RANDOM = true, // add small random to cycle timeout
-        SLIDERS_TIME_SWITCH_RANDOM_MAX = 100,
+        SLIDERS_TIME_SWITCH_DELTA = 100,
         SLIDERS_TIME_GAP = 1000, // prevent sliders from cycle all at the same time
-        SLIDERS_ARROW_FADEOUT_TIME = 3000,
+        SLIDERS_ARROW_FADEOUT_TIME = 2000,
 
         getFacebookIframe = function(url) {
             return $('<iframe/>')
@@ -49,7 +49,7 @@
                         'overflow': 'hidden',
                         'width': FB_LIKE_WIDTH + 'px',
                         'height': FB_LIKE_HEIGHT + 'px',
-                    }); 
+                    });
         },
         isEmpty = function(value) {
             return /^\s*$/.test(value) 
@@ -111,7 +111,9 @@
 
             root.each(function(sliderNumber) {
                 var localTimeout = SLIDERS_CYCLE_TIMEOUT + (
-                        SLIDERS_TIME_SWITCH_RANDOM ? getRandInt(0, SLIDERS_TIME_SWITCH_RANDOM_MAX) : 0
+                        SLIDERS_TIME_SWITCH_RANDOM ? 
+                        getRandInt(-SLIDERS_TIME_SWITCH_DELTA, SLIDERS_TIME_SWITCH_DELTA) : 
+                        0
                     ),
                     localRoot = $(this),
                     slides = localRoot.find('.slider-slides'),
@@ -126,7 +128,7 @@
                     slideNow = 0,
                     slideMax = 0,
                     changeSlide = function(direction) {
-                        slideNow += direction ? 1 : -1;
+                        slideNow += direction ? direction : 1;
                         slideNow  = slideNow < 0 ? slideMax - 1 : slideNow;
                         slideNow  = slideNow >= slideMax ?  0 : slideNow; 
                     },
@@ -149,7 +151,7 @@
                     cycleSlider = function() {
                         cycleHandler = setInterval(
                             function() {
-                                changeSlide(true);
+                                changeSlide();
                                 moveSlider();
                             },
                             localTimeout
@@ -193,13 +195,13 @@
                     );
 
                     leftArrow.click(function(e) {
-                        changeSlide(false);
+                        changeSlide(-1);
                         moveSlider();
                         e.preventDefault();
                     });
 
                     rightArrow.click(function(e) {
-                        changeSlide(true);
+                        changeSlide();
                         moveSlider();
                         e.preventDefault();
                     });
@@ -361,7 +363,7 @@
             }
         })();
         
-        // image hovering
+        // image fb hovering
         (function() {
             var ilu = $('.ilu-wrap'),
                 cnt = '.ilu-cnt',

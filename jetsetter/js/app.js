@@ -31,6 +31,7 @@
         SLIDERS_TIME_SWITCH_DELTA = 100,
         SLIDERS_TIME_GAP = 1000, // prevent sliders from cycle all at the same time
         SLIDERS_ARROW_FADEOUT_TIME = 2000,
+        URL_VOTE = 'http://jetsetter.ua/blabla/blabla/cool-vote-ajax/',
 
         getFacebookIframe = function(url) {
             return $('<iframe/>')
@@ -57,6 +58,29 @@
         getRandInt = function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         };
+
+    // EXAMPLE CODE, remove on production
+    // hint: this is example about what server need to return for vote
+    // script
+    try {
+        $.mockjax({
+            url: URL_VOTE,
+            responseTime: 750,
+            urlParams: ['total', 'group', 'position'],
+            response: function(settings) {
+                var i = 0,
+                    returnBuf = {},
+                    totalItems = settings.data.total;
+                for(i = 0; i < totalItems; ++i) {
+                    returnBuf[i] = String(getRandInt(i, 1000)) + ' голос(ов/а)'; // pluralize on server side!
+                }
+                this.responseText = returnBuf;
+            }
+        });
+    } catch(e) {
+
+    }
+    // END OF EXAMPLE CODE
     
     $(function(){
         // fix too looooooong user login
@@ -400,6 +424,10 @@
                 triggerNow = null,
                 animateGlobalLock = false,
                 globalTriggerKey = 'voteGlobalTrigger',
+                votedClass = 'voted',
+                voteWinClass = 'vote-win',
+                voteFailClass = 'vote-fail',
+                accessClass = '_vote-class',
                 uniqueTriggers = [],
                 totalSliders = 0;
 
@@ -414,6 +442,7 @@
                     items = localRoot.find('.vote-item'),
                     inf = localRoot.find('.vote-inf'),
                     links = localRoot.find('.vote-arrow-link'),
+                    group = localRoot.data('server-group'),
                     nowItem = 0,
                     totalItems = 0,
                     totalVisibleItems = 0,
@@ -436,10 +465,45 @@
                     };
 
                 items.each(function(i) {
+                    var me = $(this);
                     totalItems++;
                     if(i == 0)
-                        itemWidth = $(this).width() + parseInt($(this).css('marginRight'));
+                        itemWidth = me.width() + parseInt(me.css('marginRight'));
+                    me.data('position', i);
+                    me.addClass('accessClass' + i);
                 });
+
+                if(!localRoot.hasClass(votedClass))
+                    items.on('click', function(e) {
+                        var me = $(this);
+                        $.ajax({
+                            type: 'GET',
+                            url: URL_VOTE,
+                            data: {
+                                group: group,
+                                position: me.data('position'),
+                                total: totalItems,
+                            },
+                            success: function(data) {
+                                $.each(data, function(key, value) {
+                                    localRoot
+                                        .find('.accessClass' + key)
+                                        .find('.vote-over')
+                                        .html(value)
+                                });
+                                
+                                items.unbind('click');
+                                localRoot.addClass(votedClass);
+
+                                items.addClass(votedClass)
+                                    .addClass(voteFailClass);
+                                me.removeClass(voteFailClass)
+                                    .addClass(voteWinClass);
+                            },
+                            dataType: 'json'
+                        });
+                        e.preventDefault();
+                    });
 
                 totalVisibleItems = Math.ceil(wrap.width() / itemWidth);
                 totalMinusVisible = totalItems - totalVisibleItems;

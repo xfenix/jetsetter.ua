@@ -58,29 +58,6 @@
         getRandInt = function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         };
-
-    // EXAMPLE CODE, remove on production
-    // hint: this is example about what server need to return for vote
-    // script
-    try {
-        $.mockjax({
-            url: URL_VOTE,
-            responseTime: 750,
-            urlParams: ['total', 'group', 'position'],
-            response: function(settings) {
-                var i = 0,
-                    returnBuf = {},
-                    totalItems = settings.data.total;
-                for(i = 0; i < totalItems; ++i) {
-                    returnBuf[i] = String(getRandInt(i, 1000)) + ' голос(ов/а)'; // pluralize on server side!
-                }
-                this.responseText = returnBuf;
-            }
-        });
-    } catch(e) {
-
-    }
-    // END OF EXAMPLE CODE
     
     $(function(){
         // fix too looooooong user login

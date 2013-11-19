@@ -12,6 +12,30 @@
 	<script type="text/javascript" src="./js/jquery.simplemodal.1.4.4.min.js"></script>
     <!-- EXAMPLE ONLY -->
     <script type="text/javascript" src="./js/jquery.mockajax.js"></script>
+    <script>
+    // remove on production
+    // hint: this is example about what server need to return for vote
+    // script
+    try {
+        var getRandInt = function(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min };
+        $.mockjax({
+            url: 'http://jetsetter.ua/blabla/blabla/cool-vote-ajax/',
+            responseTime: 750,
+            urlParams: ['total', 'group', 'position'],
+            response: function(settings) {
+                var i = 0,
+                    returnBuf = {},
+                    totalItems = settings.data.total;
+                for(i = 0; i < totalItems; ++i) {
+                    returnBuf[i] = String(getRandInt(i, 1000)) + ' голос(ов/а)'; // pluralize on server side!
+                }
+                this.responseText = returnBuf;
+            }
+        });
+    } catch(e) {
+
+    }
+    </script>
     <!-- END OF EXAMPLE -->
 	<script type="text/javascript" src="./js/app.js"></script>
 

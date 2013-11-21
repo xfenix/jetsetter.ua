@@ -447,7 +447,7 @@
                     if(i == 0)
                         itemWidth = me.width() + parseInt(me.css('marginRight'));
                     me.data('position', i);
-                    me.addClass('accessClass' + i);
+                    me.addClass(accessClass + i);
                 });
 
                 if(!localRoot.hasClass(votedClass))
@@ -464,7 +464,7 @@
                             success: function(data) {
                                 $.each(data, function(key, value) {
                                     localRoot
-                                        .find('.accessClass' + key)
+                                        .find('.' + accessClass + key)
                                         .find('.vote-over')
                                         .html(value)
                                 });

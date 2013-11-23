@@ -2188,3 +2188,26 @@ body {
         vertical-align: top;
         margin: 0 0 30px 20px;
     }
+
+.form-ilu {
+    margin-bottom: 10px;
+}
+
+.form-head {
+    font-family: 'ProximaNovaBold';
+}
+
+.form-about {
+    margin-bottom: 45px;
+}
+
+    .form-about-row{
+        margin-bottom: 10px;
+    }
+
+    .form-about-quest {
+        font-family: 'PTSerifBold';
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #808080;
+    }

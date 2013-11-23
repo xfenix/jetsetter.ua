@@ -1,7 +1,7 @@
 (function(){
     "use strict";
 
-    /* global jq functions */
+    // global jq functions
     $.fn.replaceHtml = function (cnt) {
         var me = this;
         me.hide();
@@ -429,16 +429,23 @@
                     moveFn = function(dir) {
                         if (animateGlobalLock)
                             return false;
-                        nowItem = dir ? nowItem + 1 : nowItem - 1;
+                        console.log(nowItem);
+                        nowItem += dir ? 1 : -1;
+                        console.log(nowItem);
                         nowItem = nowItem < 0 ? 0 : nowItem;
-                        nowItem = nowItem >= totalMinusVisible ? totalMinusVisible : nowItem;
-                        animateGlobalLock = true;
-                        inf.animate(
-                            {left: -nowItem*itemWidth},
-                            function() {
-                                animateGlobalLock = false;
-                            }
-                        );
+                        if(nowItem < totalItems) {
+                            animateGlobalLock = true;
+                            inf.animate({
+                                    left: -nowItem*itemWidth
+                                },
+                                function() {
+                                    animateGlobalLock = false;
+                                }
+                            );
+                        }
+                        // nowItem = nowItem >= totalMinusVisible ? totalMinusVisible : nowItem;
+                        // console.log(nowItem);
+
                     };
 
                 items.each(function(i) {

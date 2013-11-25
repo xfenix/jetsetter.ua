@@ -1445,7 +1445,6 @@ body {
 
     .gallery .slider-arrow {
         position: absolute;
-        display: none;
         top: 50%;
         margin-top: -42px;
         width: 25px;

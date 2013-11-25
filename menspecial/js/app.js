@@ -4,6 +4,7 @@
         FB_LIKE_WIDTH = 100,
         FB_LIKE_HEIGHT = 21,
         MAX_LOGIN_WIDTH = 100,
+        GALLERY_STEP = 680,
         
         isEmpty = function(value) { return /^\s*$/.test(value) };
         

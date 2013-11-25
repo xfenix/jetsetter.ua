@@ -201,6 +201,54 @@
                 }
             );
         })();
+
+        // gallery
+        (function() {
+            $('.gallery').each(function() {
+                var root = $(this),
+                    inf = root.find('.gallery-inf'),
+                    items = root.find('.ilu'),
+                    itemsTotal = 0,
+                    itemsNow = 0,
+                    titlesNow = root.find('.gallery-title-title'),
+                    titlesCount = root.find('.gallery-title-counter .now'),
+                    itemsTitles = [],
+                    leftLink = root.find('.slider-arrow-left'),
+                    rightLink = root.find('.slider-arrow-right'),
+                    tmp = 0,
+                    changeInfo = function() {
+                        titlesCount.html(itemsNow + 1);
+                        titlesNow.html(itemsTitles[itemsNow]);
+                    },
+                    moveFn = function(dir) {
+                        tmp = itemsNow;
+                        itemsNow += dir ? 1 : -1;
+                        itemsNow = itemsNow >= itemsTotal - 1 ? itemsTotal - 1 : itemsNow;
+                        itemsNow = itemsNow < 1 ? 0 : itemsNow;
+                        if(tmp != itemsNow)
+                            inf.animate({
+                                    left: -itemsNow*GALLERY_STEP
+                                }, 
+                                changeInfo
+                            );
+                    };
+
+                items.each(function() {
+                    ++itemsTotal;
+                    itemsTitles.push($(this).data('title'));
+                });
+
+                leftLink.click(function(e) {
+                    moveFn(false);
+                    e.preventDefault();
+                });
+
+                rightLink.click(function(e) {
+                    moveFn(true);
+                    e.preventDefault();
+                });
+            });
+        })();
         
         // image hovering
         (function() {

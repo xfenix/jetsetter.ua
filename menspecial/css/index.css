@@ -1387,3 +1387,90 @@ body {
     .search-content .text-title .hl {
         padding: 4px 5px 0 5px;
     }
+
+.gallery {
+    position: relative;
+    width: 680px;
+    margin-bottom: 20px;
+}
+
+    .gallery .slider-arrow {
+        display: block;
+        cursor: pointer;
+    }
+
+    .gallery .ilu,
+    .gallery .ilu-wrap {
+        margin-bottom: 0 !important;
+    }
+
+    .gallery-wrap {
+        overflow: hidden;
+    }
+
+        .gallery-inf {
+            white-space: nowrap;
+            position: relative;
+        }
+
+            .gallery-inf .ilu {
+                width: 680px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+        .gallery-title {
+            font-family: 'PTSerifBold';
+            text-transform: uppercase;
+            font-size: 11px;
+            line-height: 18px;
+        }
+
+            .gallery-title li {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .gallery-title-counter:after {
+                content: '|';
+                color: #4d4949;
+                margin: 0 7px 0 5px;
+                display: inline-block;
+            }
+            
+            .gallery-title-title {
+                color: #a86e3e;
+                width: 600px;
+            }
+
+    .gallery .slider-arrow {
+        position: absolute;
+        display: none;
+        top: 50%;
+        margin-top: -42px;
+        width: 25px;
+        height: 57px;
+        z-index: 1000;
+        background: url(../img/bg-arrows-slider.png);
+    }
+
+        .gallery .slider-arrow-link {
+            display: block;
+            width: 13px;
+            height: 25px;
+            margin: 16px 6px;
+            background: url(../img/arrows-slider.png);
+        }
+
+        .gallery .slider-arrow-right .slider-arrow-link {
+            background-position: -13px 0;
+        }
+
+    .gallery .slider-arrow-left {
+        left: -4px;
+    }
+
+    .gallery .slider-arrow-right {
+        right: -4px;
+        background-position: -25px 0;
+    }

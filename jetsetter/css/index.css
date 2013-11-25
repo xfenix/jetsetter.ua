@@ -760,6 +760,7 @@ a.special:hover {
         position: relative;
     }
 
+    .gallery .slider-arrow,
     .slider-with-arrows .slider-arrow {
         position: absolute;
         display: none;
@@ -771,6 +772,7 @@ a.special:hover {
         background: url(../img/bg-arrows-slider.png);
     }
 
+        .gallery .slider-arrow-link,
         .slider-with-arrows .slider-arrow-link {
             display: block;
             width: 13px;
@@ -779,14 +781,17 @@ a.special:hover {
             background: url(../img/arrows-slider.png);
         }
 
+        .gallery .slider-arrow-right .slider-arrow-link,
         .slider-with-arrows .slider-arrow-right .slider-arrow-link {
             background-position: -13px 0;
         }
 
+    .gallery .slider-arrow-left,
     .slider-with-arrows .slider-arrow-left {
         left: -4px;
     }
 
+    .gallery .slider-arrow-right,
     .slider-with-arrows .slider-arrow-right {
         right: -4px;
         background-position: -25px 0;
@@ -2211,3 +2216,58 @@ body {
         text-transform: uppercase;
         color: #808080;
     }
+
+.gallery {
+    position: relative;
+    width: 680px;
+    margin-bottom: 20px;
+}
+
+    .gallery .slider-arrow {
+        display: block;
+        cursor: pointer;
+    }
+
+    .gallery .ilu,
+    .gallery .ilu-wrap {
+        margin-bottom: 0 !important;
+    }
+
+    .gallery-wrap {
+        overflow: hidden;
+    }
+
+        .gallery-inf {
+            white-space: nowrap;
+            position: relative;
+        }
+
+            .gallery-inf .ilu {
+                width: 680px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+        .gallery-title {
+            font-family: 'PTSerifBold';
+            text-transform: uppercase;
+            font-size: 11px;
+            line-height: 18px;
+        }
+
+            .gallery-title li {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .gallery-title-counter:after {
+                content: '|';
+                color: #4d4949;
+                margin: 0 7px 0 5px;
+                display: inline-block;
+            }
+            
+            .gallery-title-title {
+                color: #cf4295;
+                width: 600px;
+            }

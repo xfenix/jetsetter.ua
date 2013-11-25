@@ -26,6 +26,7 @@
         FB_LIKE_WIDTH = 100,
         FB_LIKE_HEIGHT = 21,
         MAX_LOGIN_WIDTH = 100,
+        GALLERY_STEP = 680,
         SLIDERS_CYCLE_TIMEOUT = 6000,
         SLIDERS_TIME_SWITCH_RANDOM = true, // add small random to cycle timeout
         SLIDERS_TIME_SWITCH_DELTA = 100,
@@ -425,15 +426,16 @@
                     totalVisibleItems = 0,
                     totalMinusVisible = 0,
                     itemWidth = 0,
+                    tmp = 0,
                     uniqueTrigger = globalTriggerKey + i,
                     moveFn = function(dir) {
                         if (animateGlobalLock)
                             return false;
-                        console.log(nowItem);
+                        tmp = nowItem;
                         nowItem += dir ? 1 : -1;
-                        console.log(nowItem);
                         nowItem = nowItem < 0 ? 0 : nowItem;
-                        if(nowItem < totalItems) {
+                        nowItem = nowItem >= totalMinusVisible ? totalMinusVisible : nowItem;
+                        if(nowItem < totalItems && tmp != nowItem) {
                             animateGlobalLock = true;
                             inf.animate({
                                     left: -nowItem*itemWidth
@@ -443,9 +445,6 @@
                                 }
                             );
                         }
-                        // nowItem = nowItem >= totalMinusVisible ? totalMinusVisible : nowItem;
-                        // console.log(nowItem);
-
                     };
 
                 items.each(function(i) {
@@ -526,6 +525,54 @@
             $(document).keydown(function(e) {
                 if(triggerNow && Object.keys(keyDirs).indexOf(e.which.toString()) > -1)
                     $(document).trigger(triggerNow, [ keyDirs[e.which] ]);
+            });
+        })();
+
+        // gallery
+        (function() {
+            $('.gallery').each(function() {
+                var root = $(this),
+                    inf = root.find('.gallery-inf'),
+                    items = root.find('.ilu'),
+                    itemsTotal = 0,
+                    itemsNow = 0,
+                    titlesNow = root.find('.gallery-title-title'),
+                    titlesCount = root.find('.gallery-title-counter .now'),
+                    itemsTitles = [],
+                    leftLink = root.find('.slider-arrow-left'),
+                    rightLink = root.find('.slider-arrow-right'),
+                    tmp = 0,
+                    changeInfo = function() {
+                        titlesCount.html(itemsNow + 1);
+                        titlesNow.html(itemsTitles[itemsNow]);
+                    },
+                    moveFn = function(dir) {
+                        tmp = itemsNow;
+                        itemsNow += dir ? 1 : -1;
+                        itemsNow = itemsNow >= itemsTotal - 1 ? itemsTotal - 1 : itemsNow;
+                        itemsNow = itemsNow < 1 ? 0 : itemsNow;
+                        if(tmp != itemsNow)
+                            inf.animate({
+                                    left: -itemsNow*GALLERY_STEP
+                                }, 
+                                changeInfo
+                            );
+                    };
+
+                items.each(function() {
+                    ++itemsTotal;
+                    itemsTitles.push($(this).data('title'));
+                });
+
+                leftLink.click(function(e) {
+                    moveFn(false);
+                    e.preventDefault();
+                });
+
+                rightLink.click(function(e) {
+                    moveFn(true);
+                    e.preventDefault();
+                });
             });
         })();
 

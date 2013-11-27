@@ -5,6 +5,8 @@
         FB_LIKE_HEIGHT = 21,
         MAX_LOGIN_WIDTH = 100,
         GALLERY_STEP = 680,
+        WHERE_SHOW_UP_BUTTON = 200,
+        RETURN_UP_ANIMATION_TIME = 600,
         
         isEmpty = function(value) { return /^\s*$/.test(value) };
         
@@ -276,6 +278,27 @@
                     $(this).find(show).hide();
                 }
             );
+        })();
+
+        // scroll up
+        (function() {
+            var el = $('<a />')
+                        .attr('href', '#')
+                        .attr('class', 'all-scrollup')
+                        .appendTo('body');
+
+            $(document).on('scroll resize', function(){
+                if ($(this).scrollTop() > WHERE_SHOW_UP_BUTTON) {
+                    el.show();
+                } else {
+                    el.hide();
+                }
+            });
+     
+            $(el).on('click', function(){
+                $('html, body').animate({ scrollTop: 0 }, RETURN_UP_ANIMATION_TIME);
+                return false;
+            });
         })();
         
         bottlesFix();

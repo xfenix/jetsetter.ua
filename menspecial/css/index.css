@@ -536,6 +536,17 @@ body {
     margin: 0 auto;
 }
 
+    .all-scrollup {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        margin-left: -562px;
+        background: url(../img/up.png);
+        width: 32px;
+        height: 32px;
+        display: none;
+    }
+
     .all-before {
         display: block;
         position: fixed;

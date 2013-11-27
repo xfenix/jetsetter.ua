@@ -32,6 +32,8 @@
         SLIDERS_TIME_SWITCH_DELTA = 100,
         SLIDERS_TIME_GAP = 1000, // prevent sliders from cycle all at the same time
         SLIDERS_ARROW_FADEOUT_TIME = 2000,
+        WHERE_SHOW_UP_BUTTON = 200,
+        RETURN_UP_ANIMATION_TIME = 600,
         URL_VOTE = 'http://jetsetter.ua/blabla/blabla/cool-vote-ajax/',
 
         getFacebookIframe = function(url) {
@@ -573,6 +575,27 @@
                     moveFn(true);
                     e.preventDefault();
                 });
+            });
+        })();
+
+        // scroll up
+        (function() {
+            var el = $('<a />')
+                        .attr('href', '#')
+                        .attr('class', 'all-scrollup')
+                        .appendTo('body');
+
+            $(document).on('scroll resize', function(){
+                if ($(this).scrollTop() > WHERE_SHOW_UP_BUTTON) {
+                    el.show();
+                } else {
+                    el.hide();
+                }
+            });
+     
+            $(el).on('click', function(){
+                $('html, body').animate({ scrollTop: 0 }, RETURN_UP_ANIMATION_TIME);
+                return false;
             });
         })();
 

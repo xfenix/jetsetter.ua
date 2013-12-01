@@ -37,19 +37,24 @@
         // hover main menu
         (function(){
             var root = $('.all-menu'),
+                hoverClass = 'hover',
                 links = root.find('.link'),
                 subs = root.find('.level2'),
                 time = HOVER_MENU_TIME,
                 handler = null,
                 hide = function(item) {
                     return function() {
+                        item.prev().removeClass(hoverClass);
                         item.fadeOut();
                     }
                 };
             
             links.hover(
                 function() {
-                    var next = $(this).next();
+                    var me = $(this),
+                        next = me.next();
+                    links.removeClass(hoverClass);
+                    me.addClass(hoverClass);
                     if(next.css('display') == 'none') {
                         subs.hide();
                         clearTimeout(handler);
@@ -63,6 +68,7 @@
             
             subs.hover(
                 function() {
+                    $(this).prev().addClass(hoverClass);
                     clearTimeout(handler);  
                 },     
                 function() {

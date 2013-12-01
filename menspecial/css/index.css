@@ -692,7 +692,7 @@ body {
                 padding: 10px 20px 11px 20px;
             }
             
-            .all-menu .item .link:hover {
+            .all-menu .item .link.hover {
                 background: url(../img/bg-menu.png) 0 -37px;
             }
         

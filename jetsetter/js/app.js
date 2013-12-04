@@ -402,7 +402,8 @@
 
         // vote slider
         (function() {
-            var root = $('.vote-slider'),
+            var compactRoot = $('.vote-compact'),
+                root = $('.vote-slider'),
                 keyDirs = {
                     37: false, // left
                     39: true   // right
@@ -415,13 +416,63 @@
                 voteFailClass = 'vote-fail',
                 accessClass = '_vote-class',
                 uniqueTriggers = [],
-                totalSliders = 0;
+                totalSliders = 0,
+                attachVoteEvent = function(items, root, total) {
+                    if(root.hasClass(votedClass))
+                        return false;
+                    items.on('click', function(e) {
+                        var me = $(this),
+                            group = root.data('server-group');
 
+                        $.ajax({
+                            type: 'GET',
+                            url: URL_VOTE,
+                            data: {
+                                group: group,
+                                position: me.data('position'),
+                                total: total,
+                            },
+                            success: function(data) {
+                                $.each(data, function(key, value) {
+                                    root
+                                    .find('.' + accessClass + key)
+                                    .find('.vote-over')
+                                    .html(value)
+                                });
+                                
+                                items.unbind('click');
+                                root.addClass(votedClass);
+
+                                items.addClass(votedClass)
+                                    .addClass(voteFailClass);
+                                me.removeClass(voteFailClass)
+                                    .addClass(voteWinClass);
+                            },
+                            dataType: 'json'
+                        });
+                        e.preventDefault();
+                    });
+                };
+
+            // compact vote - compact case
+            compactRoot.each(function() {
+                var localRoot = $(this),
+                    items = localRoot.find('li'),
+                    totalItems = 0;
+                items.each(function(i) {
+                    var me = $(this);
+                    totalItems++;
+                    me.data('position', i);
+                    me.addClass(accessClass + i);
+                });
+                attachVoteEvent(items, localRoot, totalItems);
+            });
+
+            // full vote
             root.each(function(i) { 
                 totalSliders++;
             });
 
-            // local vote sliders
             root.each(function(i) {
                 var localRoot = $(this),
                     wrap = localRoot.find('.vote-wrap'),
@@ -464,37 +515,7 @@
                     me.addClass(accessClass + i);
                 });
 
-                if(!localRoot.hasClass(votedClass))
-                    items.on('click', function(e) {
-                        var me = $(this);
-                        $.ajax({
-                            type: 'GET',
-                            url: URL_VOTE,
-                            data: {
-                                group: group,
-                                position: me.data('position'),
-                                total: totalItems,
-                            },
-                            success: function(data) {
-                                $.each(data, function(key, value) {
-                                    localRoot
-                                        .find('.' + accessClass + key)
-                                        .find('.vote-over')
-                                        .html(value)
-                                });
-                                
-                                items.unbind('click');
-                                localRoot.addClass(votedClass);
-
-                                items.addClass(votedClass)
-                                    .addClass(voteFailClass);
-                                me.removeClass(voteFailClass)
-                                    .addClass(voteWinClass);
-                            },
-                            dataType: 'json'
-                        });
-                        e.preventDefault();
-                    });
+                attachVoteEvent(items, localRoot, totalItems);
 
                 totalVisibleItems = Math.ceil(wrap.width() / itemWidth);
                 totalMinusVisible = totalItems - totalVisibleItems;

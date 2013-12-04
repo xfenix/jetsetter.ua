@@ -15,7 +15,7 @@
             'slow',
             function() {
                 me.attr('src', src);
-                me.fadeIn('slow');
+                me.stop(true,true).fadeIn('slow');
             }
         );
     };

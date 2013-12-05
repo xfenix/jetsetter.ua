@@ -6,12 +6,12 @@
         var me = this;
         me.hide();
         me.html(cnt);
-        me.fadeIn('slow');
+        me.stop(true,true).fadeIn('slow');
     };
 
     $.fn.replaceSrc = function (src) {
         var me = this;
-        me.fadeOut(
+        me.stop(true,true).fadeOut(
             'slow',
             function() {
                 me.attr('src', src);

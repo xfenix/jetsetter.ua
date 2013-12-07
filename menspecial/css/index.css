@@ -672,12 +672,12 @@ body {
     }
     
         .all-menu .link {
-            font-size: 15px;
+            font-size: 14px;
             font-family: 'ProximaNovaExtraBold';
         }
         
         .all-menu .link2 {
-            font-size: 13px;
+            font-size: 12px;
             font-family: 'ProximaNovaSemiBold';
         }
     
@@ -689,11 +689,7 @@ body {
         
             .all-menu .item .link {
                 display: block;
-                padding: 10px 20px 11px 20px;
-            }
-            
-            .all-menu .item .link.hover {
-                background: url(../img/bg-menu.png) 0 -37px;
+                padding: 10px 15px 11px 15px;
             }
         
         .all-menu .level2 {
@@ -702,18 +698,26 @@ body {
             top: 37px;
             left: 0;
             background: #1a1a1a;
-            padding: 10px 20px 10px 0;
+            padding: 10px 15px 10px 0;
             z-index: 1000;
         }
         
             .all-menu .level2 .item2 {
-                padding: 4px 20px;
+                padding: 4px 15px;
                 white-space: nowrap;
             }
             
                 .all-menu .level2 .item2 .link2:hover {
                     color: #a8703e;
                 }
+            
+        .all-menu .item.hover .link {
+            background: url(../img/bg-menu.png) 0 -37px;
+        }
+
+        .all-menu .item.hover .level2 {
+            display: block;
+        }
         
     .all-content {
         background: #fff;

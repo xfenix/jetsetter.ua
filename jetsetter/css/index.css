@@ -1102,10 +1102,6 @@ body {
                 display: block;
                 padding: 10px 15px 11px 15px;
             }
-            
-            .all-menu .item .link.hover {
-                background: url(../img/bg-menu.png) 0 -37px;
-            }
         
         .all-menu .level2 {
             display: none;
@@ -1125,6 +1121,14 @@ body {
                 .all-menu .level2 .item2 .link2:hover {
                     color: #cf4295;
                 }
+            
+        .all-menu .item.hover .link {
+            background: url(../img/bg-menu.png) 0 -37px;
+        }
+
+        .all-menu .item.hover .level2 {
+            display: block;
+        }
         
     .all-content {
         color: #4c4c4c;

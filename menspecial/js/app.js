@@ -38,41 +38,29 @@
         (function(){
             var root = $('.all-menu'),
                 hoverClass = 'hover',
-                links = root.find('.link'),
-                subs = root.find('.level2'),
+                items = root.find('.item'),
+                links = root.find('.link, .level2'),
                 time = HOVER_MENU_TIME,
-                handler = null,
-                hide = function(item) {
-                    return function() {
-                        item.prev().removeClass(hoverClass);
-                        item.fadeOut();
-                    }
-                };
-            
+                handler = null;
+
             links.hover(
                 function() {
-                    var me = $(this),
-                        next = me.next();
-                    links.removeClass(hoverClass);
-                    me.addClass(hoverClass);
-                    if(next.css('display') == 'none') {
-                        subs.hide();
-                        clearTimeout(handler);
-                        next.fadeIn();
-                    }
+                    clearTimeout(handler);
+                    $('.' + hoverClass).removeClass(hoverClass);
+                    $(this).parent('.item').addClass(hoverClass);
                 },
+
                 function() {
-                    handler = setTimeout(hide($(this).next()), time);
-                }
-            );
-            
-            subs.hover(
-                function() {
-                    $(this).prev().addClass(hoverClass);
-                    clearTimeout(handler);  
-                },     
-                function() {
-                    handler = setTimeout(hide($(this)), time);
+                    var parent = $(this).parent('.item');
+                    if(parent.find('.level2').length)
+                        handler = setTimeout(
+                            function() {
+                                parent.removeClass(hoverClass);
+                            },
+                            time
+                        );
+                    else
+                        parent.removeClass(hoverClass);
                 }
             );
         })();

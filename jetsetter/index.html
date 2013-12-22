@@ -11,9 +11,22 @@
     <script type="text/javascript" src="./js/jquery-latest.min.js"></script>
     <script type="text/javascript" src="./js/jquery.animate.enhanced.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.simplemodal.1.4.4.min.js"></script>
+    <script type="text/javascript" src="./js/tagcanvas.min.js"></script>
 	<script type="text/javascript" src="./js/app.js"></script>
+    <script>
+    $(function() {
+        var options = {
+            textFont: 'ProximaNovaSemiBold',
+            outlineMethod: 'colour',
+            outlineColour: '#000',
+            textColour: '#cf4295',
+        };
+        TagCanvas.Start('box-tags', 'box-tags-list', options);
+    });
+    </script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="./js/html5.js"></script>
+    <script type="text/javascript" src="./js/excanvas.compiled.js"></script>
 	<![endif]-->
 	<!--[if lt IE 10]>
 	<script type="text/javascript" src="./js/jquery.placeholder.js"></script>
@@ -524,6 +537,23 @@
             		    <div class="cf box">
                 		    <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FJetSetterua%2F168781521491&amp;width=300&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true&amp;appId=181129608607691" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:300px;" allowTransparency="true"></iframe>
             		    </div>
+
+                        <div class="cf box box-tags">
+                            <div class="title title-center title-center-big">
+                                <h2 class="header">Популярные теги</h2>
+                                <div class="arrow"></div>
+                            </div>
+                            <div class="box-tags-wrapper">
+                                <canvas width="300" height="300" class="box-tags-wrapper-canvas" id="box-tags"></canvas>
+                                  <ul id="box-tags-list">
+                                   <li><a href="http://www.google.com" target="_blank">Google</a></li>
+                                   <li><a href="/fish">Fish</a></li>
+                                   <li><a href="/chips">Chips</a></li>
+                                   <li><a href="/salt">Salt</a></li>
+                                   <li><a href="/vinegar">Vinegar</a></li>
+                                  </ul>
+                            </div>
+                        </div>
     		        </div>
 		      </ul>
 		</div>

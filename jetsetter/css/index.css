@@ -361,6 +361,19 @@ a.special:hover {
             color: #fff;
         }
 
+.box-tags {
+
+}
+
+    .box-tags-wrapper {
+        font-family: 'ProximaNovaSemiBold';
+        color: #cf4295;
+    }
+
+        .box-tags-wrapper .link {
+            color: #cf4295;
+        }
+
 .box-news {
     margin-top: -5px;
 }
@@ -957,10 +970,10 @@ body {
         position: fixed;
         top: 10px;
         left: 50%;
-        margin-left: -562px;
+        margin-left: -572px;
         background: url(../img/up.png);
-        width: 32px;
-        height: 32px;
+        width: 42px;
+        height: 42px;
         display: none;
     }
     
